@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { FaBookmark } from "react-icons/fa";
+import { FaBookmark, FaInstagram, FaHeart } from "react-icons/fa";
 
 export default {
   title: "Components/Button",
@@ -37,9 +37,18 @@ export const PrimaryWithIcon = {
   args: {
     label: "Primary Button",
     variant: "primary",
-    themeName: "yellowTheme",
+    themeName: "greenTheme",
     size: "large",
     icon: FaBookmark,
+  },
+};
+
+export const PrimaryIcon = {
+  args: {
+    variant: "primary",
+    themeName: "greenTheme",
+    size: "large",
+    icon: FaInstagram,
   },
 };
 
@@ -48,8 +57,17 @@ export const Secondary = {
     label: "Secondary Button",
     variant: "secondary",
     onClick: () => alert("Button Clicked!"),
-    themeName: "blueTheme",
+    themeName: "yellowTheme",
     size: "medium",
+  },
+};
+
+export const SecondaryIcon = {
+  args: {
+    variant: "secondary",
+    themeName: "yellowTheme",
+    size: "large",
+    icon: FaHeart,
   },
 };
 

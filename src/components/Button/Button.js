@@ -16,9 +16,15 @@ const Button = ({
 }) => {
   const theme = colors[themeName];
   return (
-    <ACNButton variant={variant} theme={theme} size={size} onClick={onClick}>
+    <ACNButton
+      variant={variant}
+      theme={theme}
+      size={size}
+      onClick={onClick}
+      hasLabel={!!label}
+    >
       {Icon && (
-        <IconWrapper>
+        <IconWrapper hasLabel={!!label}>
           <Icon />
         </IconWrapper>
       )}
@@ -31,9 +37,8 @@ const baseStyle = css`
   border: none;
   cursor: pointer;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   min-height: 56px;
-  min-width: 9em;
 `;
 
 const sizeStyles = {
@@ -55,28 +60,6 @@ const sizeStyles = {
     width: 100%;
   `,
 };
-
-// const variantStyles = {
-//   primary: css`
-//     background-color: ${colors.yellowTheme.primary};
-
-//     &:hover {
-//       background-color: ${darken(0.1, colors.yellowTheme.primary)};
-//     }
-//   `,
-//   secondary: css`
-//     background-color: ${colors.yellowTheme.secondary};
-
-//     &:hover {
-//       background-color: ${darken(0.1, colors.yellowTheme.secondary)};
-//     }
-//   `,
-// };
-
-// const ACNButton = styled.button`
-//   ${baseStyle}
-//   ${(props) => variantStyles[props.variant]}
-// `;
 
 const variantStyles = {
   primary: (theme) => css`
@@ -108,7 +91,7 @@ const variantStyles = {
 };
 
 const IconWrapper = styled.span`
-  margin-right: 0.5rem;
+  margin-right: ${(props) => (props.hasLabel ? "0.5rem" : "0")};
   display: inline;
   align-items: center;
 `;
@@ -118,18 +101,5 @@ const ACNButton = styled.button`
   ${(props) => sizeStyles[props.size]}
   ${(props) => variantStyles[props.variant](props.theme)}
 `;
-
-// const ACNButton = styled.button`
-//   ${baseStyle}
-//   ${(props) => css`
-//     background-color: ${props.theme ? props.theme[props.variant] : "gray"};
-
-//     &:hover {
-//       background-color: ${props.theme
-//         ? darken(0.1, props.theme[props.variant])
-//         : "darkgray"};
-//     }
-//   `}
-// `;
 
 export default Button;
