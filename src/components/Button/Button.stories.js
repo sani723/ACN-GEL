@@ -38,6 +38,7 @@ export const Primary = {
     size: "medium",
     loading: false,
     disabled: false,
+    rounded: false,
   },
 };
 
@@ -50,6 +51,7 @@ export const PrimaryWithIcon = {
     icon: FaBookmark,
     loading: false,
     disabled: false,
+    rounded: false,
   },
 };
 
@@ -61,6 +63,7 @@ export const PrimaryIcon = {
     icon: FaInstagram,
     loading: false,
     disabled: false,
+    rounded: false,
   },
 };
 
@@ -73,6 +76,7 @@ export const PrimaryLoading = {
     icon: FaBookmark,
     loading: true,
     disabled: false,
+    rounded: false,
   },
 };
 
@@ -83,7 +87,8 @@ export const PrimaryDisabled = {
     themeName: "greenTheme",
     size: "large",
     loading: false,
-    disabled: false,
+    disabled: true,
+    rounded: false,
   },
 };
 
@@ -92,31 +97,46 @@ export const Secondary = {
     label: "Secondary Button",
     variant: "secondary",
     onClick: () => alert("Button Clicked!"),
-    themeName: "yellowTheme",
-    size: "medium",
+    themeName: "greenTheme",
+    size: "large",
     loading: false,
     disabled: false,
+    rounded: false,
   },
 };
 
 export const SecondaryIcon = {
   args: {
     variant: "secondary",
-    themeName: "yellowTheme",
+    themeName: "greenTheme",
     size: "large",
     icon: FaHeart,
     loading: false,
     disabled: false,
+    rounded: false,
   },
 };
 
-export const Text = {
+export const SecondaryIconRounded = {
+  args: {
+    variant: "secondary",
+    themeName: "greenTheme",
+    size: "large",
+    icon: FaHeart,
+    loading: false,
+    disabled: false,
+    rounded: true,
+  },
+};
+
+export const TextButton = {
   args: {
     label: "Text Button",
     variant: "text",
-    themeName: "blueTheme",
-    size: "medium",
+    themeName: "greenTheme",
+    size: "large",
     loading: false,
     disabled: false,
+    rounded: false,
   },
 };
