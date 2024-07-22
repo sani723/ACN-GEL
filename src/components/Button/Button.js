@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { darken } from "polished";
 import colors from "../../utils/colors";
+import { FaSpinner } from "react-icons/fa";
 
 const Button = ({
   label,
@@ -12,7 +13,8 @@ const Button = ({
   themeName,
   size,
   icon: Icon,
-  ...props
+  loading,
+  disabled,
 }) => {
   const theme = colors[themeName];
   return (
@@ -21,14 +23,21 @@ const Button = ({
       theme={theme}
       size={size}
       onClick={onClick}
+      disabled={disabled || loading}
       hasLabel={!!label}
+      loading={loading}
     >
-      {Icon && (
+      {loading && (
+        <SpinnerWrapper>
+          <FaSpinner />
+        </SpinnerWrapper>
+      )}
+      {Icon && !loading && (
         <IconWrapper hasLabel={!!label}>
           <Icon />
         </IconWrapper>
       )}
-      {label}
+      {!loading && label}
     </ACNButton>
   );
 };
@@ -39,6 +48,11 @@ const baseStyle = css`
   font-size: 1rem;
   padding: 0.5rem;
   min-height: 56px;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 `;
 
 const sizeStyles = {
@@ -66,7 +80,7 @@ const variantStyles = {
     background-color: ${theme.primary};
     color: white;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: ${darken(0.1, theme.primary)};
     }
   `,
@@ -75,7 +89,7 @@ const variantStyles = {
     color: ${theme.primary};
     border: 1px solid ${theme.primary};
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: ${theme.background};
     }
   `,
@@ -84,7 +98,7 @@ const variantStyles = {
     color: ${theme.primary};
     border: none;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: ${theme.background};
     }
   `,
@@ -94,6 +108,23 @@ const IconWrapper = styled.span`
   margin-right: ${(props) => (props.hasLabel ? "0.5rem" : "0")};
   display: inline;
   align-items: center;
+`;
+
+const SpinnerWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  svg {
+    animation: spin 1s linear infinite;
+  }
 `;
 
 const ACNButton = styled.button`
