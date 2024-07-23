@@ -2,18 +2,24 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import colors from "../../utils/colors";
 
-const AccordionItem = ({ title, content, isOpen, onClick }) => (
+const AccordionItem = ({ title, content, isOpen, onClick, theme }) => (
   <Item>
-    <Title onClick={onClick}>
+    <Title onClick={onClick} theme={theme}>
       {title}
       <Icon isOpen={isOpen}> {isOpen ? "-" : "+"} </Icon>
     </Title>
-    {isOpen && <Content>{content}</Content>}
+    {isOpen && <Content theme={theme}>{content}</Content>}
   </Item>
 );
 
-const Accordion = ({ items, defaultOpenIndex = null, multiOpen = false }) => {
+const Accordion = ({
+  items,
+  defaultOpenIndex = null,
+  multiOpen = false,
+  theme = "greenTheme",
+}) => {
   const [openIndexes, setOpenIndexes] = useState([]);
 
   useEffect(() => {
@@ -34,6 +40,8 @@ const Accordion = ({ items, defaultOpenIndex = null, multiOpen = false }) => {
     }
   };
 
+  const selectedTheme = colors[theme] || colors["greenTheme"];
+
   return (
     <Container>
       {items.map((item, index) => (
@@ -43,6 +51,7 @@ const Accordion = ({ items, defaultOpenIndex = null, multiOpen = false }) => {
           content={item.content}
           isOpen={openIndexes.includes(index)}
           onClick={() => handleClick(index)}
+          theme={selectedTheme}
         />
       ))}
     </Container>
@@ -51,7 +60,6 @@ const Accordion = ({ items, defaultOpenIndex = null, multiOpen = false }) => {
 
 const Container = styled.div`
   border: 1px solid #ddd;
-  border-radius: 4px;
 `;
 
 const Item = styled.div`
@@ -68,7 +76,7 @@ const Title = styled.div`
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  background-color: #f5f5f5;
+  background-color: ${(props) => props.theme.primary};
 `;
 
 const Icon = styled.span`
@@ -79,7 +87,7 @@ const Icon = styled.span`
 
 const Content = styled.div`
   padding: 15px;
-  background-color: #fafafa;
+  background-color: ${(props) => props.theme.background};
 `;
 
 export default Accordion;

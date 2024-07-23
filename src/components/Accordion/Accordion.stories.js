@@ -16,6 +16,10 @@ export default {
     multiOpen: {
       control: { type: "boolean" },
     },
+    theme: {
+      options: ["yellowTheme", "greenTheme", "blueTheme"],
+      control: { type: "select" },
+    },
   },
 };
 
@@ -40,6 +44,7 @@ const items = [
 export const Default = {
   args: {
     items,
+    theme: "greenTheme",
   },
 };
 
@@ -47,6 +52,7 @@ export const WithDefaultOpen = {
   args: {
     items,
     defaultOpenIndex: 0,
+    theme: "greenTheme",
   },
 };
 
@@ -54,5 +60,6 @@ export const MultiOpen = {
   args: {
     items,
     multiOpen: true,
+    theme: "greenTheme",
   },
 };
