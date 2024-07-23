@@ -4,6 +4,11 @@ import Accordion from "./Accordion";
 export default {
   title: "Components/Accordion",
   component: Accordion,
+  parameters: {
+    docs: {
+      page: () => import("./Accordion.mdx"), // Reference the MDX file
+    },
+  },
 };
 
 const items = [

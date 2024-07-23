@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import * as AccordionStories from "./Accordion.stories";
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+Accordions are used to expand and collapse content related to a given heading. It allows larger sections of information to be presented to the user in a more digestible format, with the heading providing the user with an indication of what content will be revealed when the accordion is expanded.
+
+## Usage guidelines
+
+Use an accordion to expand and collapse content related to a given heading.
+
+<Canvas>
+  <Story name="Default">
+    <AccordionStories.Default />
+  </Story>
+</Canvas>
+
+## Best practices
+
+- Use an accordion to group together long sections of related content into a more digestible format.
+- Use an accordion for information that can take a lower priority than other content on the page.
+- Use an accordion to help reduce the length of a page, while still ensuring that all necessary information is available to users.
+- Use the accordion heading to clearly communicate to users the content that will be available when the section is expanded.
+- Do not use an accordion to hide calls to action that require the user's attention.
+- Do not use an accordion to hide error states.
+- Do not use an accordion as a selection control component for the user.
+- Do not use an accordion to hide important legal or privacy information.
+
+## Examples
+
+### Basic Accordion
+
+```jsx
+import Accordion from "./Accordion";
+
+const items = [
+  {
+    title: "Accordion Item 1",
+    content: "Content for accordion item 1.",
+  },
+  {
+    title: "Accordion Item 2",
+    content: "Content for accordion item 2.",
+  },
+  {
+    title: "Accordion Item 3",
+    content: "Content for accordion item 3.",
+  },
+];
+
+<Accordion items={items} />;
+```
