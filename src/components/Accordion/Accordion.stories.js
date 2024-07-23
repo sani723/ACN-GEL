@@ -9,6 +9,11 @@ export default {
       page: () => import("./Accordion.mdx"), // Reference the MDX file
     },
   },
+  argTypes: {
+    defaultOpenIndex: {
+      control: { type: "number", min: 0 },
+    },
+  },
 };
 
 const items = [
@@ -32,5 +37,12 @@ const items = [
 export const Default = {
   args: {
     items,
+  },
+};
+
+export const WithDefaultOpen = {
+  args: {
+    items,
+    defaultOpenIndex: 0,
   },
 };

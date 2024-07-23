@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
@@ -13,8 +13,12 @@ const AccordionItem = ({ title, content, isOpen, onClick }) => (
   </Item>
 );
 
-const Accordion = ({ items }) => {
-  const [openIndex, setOpenIndex] = useState(null);
+const Accordion = ({ items, defaultOpenIndex }) => {
+  const [openIndex, setOpenIndex] = useState(defaultOpenIndex);
+
+  useEffect(() => {
+    setOpenIndex(defaultOpenIndex);
+  }, [defaultOpenIndex]);
 
   const handleClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
