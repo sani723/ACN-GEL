@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
 import * as ButtonStories from "./Button.stories";
 
 <Meta of={ButtonStories} />
@@ -36,18 +37,22 @@ The primary button is used for the most important action on a page or in a view.
 - Legal calls to action, such as "View key offer details."
 - Alongside an input field, when there is an action to be taken after the user has inputted their information (e.g. searching for nearby dealers based on the user's location).
 
-## Props
+## Available props
 
+<Markdown>
+  {`
 | Name        | Type                  | Default         | Description                                                       |
 | ----------- | --------------------- | --------------- | ----------------------------------------------------------------- |
-| `label`     | `string`              | `undefined`     | The text to display inside the button.                            |
-| `variant`   | `string`              | `'primary'`     | The variant of the button (`primary`, `secondary`, `text`).       |
-| `themeName` | `string`              | `'yellowTheme'` | The theme color for the button.                                   |
-| `size`      | `string`              | `'medium'`      | The size of the button (`small`, `medium`, `large`, `fullWidth`). |
-| `icon`      | `React.ComponentType` | `undefined`     | The icon to display inside the button.                            |
-| `loading`   | `boolean`             | `false`         | Whether the button shows a loading spinner.                       |
-| `disabled`  | `boolean`             | `false`         | Whether the button is disabled.                                   |
-| `onClick`   | `function`            | `undefined`     | The click handler function.                                       |
+| label     | string              | undefined     | The text to display inside the button.                            |
+| variant   | string              | 'primary'     | The variant of the button (primary, secondary, text).       |
+| themeName | string              | 'yellowTheme' | The theme color for the button.                                   |
+| size      | string              | 'medium'      | The size of the button (small, medium, large, fullWidth). |
+| icon      | React.ComponentType | undefined     | The icon to display inside the button.                            |
+| loading   | boolean             | false         | Whether the button shows a loading spinner.                       |
+| disabled  | boolean             | false         | Whether the button is disabled.                                   |
+| onClick   | function            | undefined     | The click handler function.                                       |
+`}
+</Markdown>
 
 ## Examples
 
