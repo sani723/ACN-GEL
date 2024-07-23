@@ -13,15 +13,25 @@ const AccordionItem = ({ title, content, isOpen, onClick }) => (
   </Item>
 );
 
-const Accordion = ({ items, defaultOpenIndex }) => {
-  const [openIndex, setOpenIndex] = useState(defaultOpenIndex);
+const Accordion = ({ items, defaultOpenIndex = null, multiOpen = false }) => {
+  const [openIndexes, setOpenIndexes] = useState([]);
 
   useEffect(() => {
-    setOpenIndex(defaultOpenIndex);
+    if (defaultOpenIndex !== null) {
+      setOpenIndexes([defaultOpenIndex]);
+    }
   }, [defaultOpenIndex]);
 
   const handleClick = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    if (multiOpen) {
+      setOpenIndexes((prevIndexes) =>
+        prevIndexes.includes(index)
+          ? prevIndexes.filter((i) => i !== index)
+          : [...prevIndexes, index]
+      );
+    } else {
+      setOpenIndexes(openIndexes.includes(index) ? [] : [index]);
+    }
   };
 
   return (
@@ -31,7 +41,7 @@ const Accordion = ({ items, defaultOpenIndex }) => {
           key={index}
           title={item.title}
           content={item.content}
-          isOpen={openIndex === index}
+          isOpen={openIndexes.includes(index)}
           onClick={() => handleClick(index)}
         />
       ))}

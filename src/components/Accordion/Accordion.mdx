@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories";
 
 <Meta of={AccordionStories} />
@@ -27,6 +28,18 @@ Use an accordion to expand and collapse content related to a given heading.
 - Do not use an accordion to hide error states.
 - Do not use an accordion as a selection control component for the user.
 - Do not use an accordion to hide important legal or privacy information.
+
+## Available props
+
+<Markdown>
+  {`
+| Name             | Type    | Default | Description                                                                         |
+|------------------|---------|---------|-------------------------------------------------------------------------------------|
+| items            | array   | []    | The array of items for the accordion. Each item should have a 'title' and 'content' property. |
+| defaultOpenIndex | number  | null  | The index of the item that should be open by default.                              |
+| multiOpen        | boolean | false | When enabled, multiple accordion sections can be open at the same time.            |
+`}
+</Markdown>
 
 ## Examples
 

@@ -13,6 +13,9 @@ export default {
     defaultOpenIndex: {
       control: { type: "number", min: 0 },
     },
+    multiOpen: {
+      control: { type: "boolean" },
+    },
   },
 };
 
@@ -44,5 +47,12 @@ export const WithDefaultOpen = {
   args: {
     items,
     defaultOpenIndex: 0,
+  },
+};
+
+export const MultiOpen = {
+  args: {
+    items,
+    multiOpen: true,
   },
 };
