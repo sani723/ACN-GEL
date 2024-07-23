@@ -1,0 +1,67 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Buttons are used to show the user’s choice of options for actions and assign these to a clear hierarchy. A button helps the user to find the most important actions of a page or within a viewport and enables them to perform these actions. The label is used to clearly indicate to the user what action will be triggered. Buttons allow users to commit a change, complete steps in a task, or make choices.
+
+## Usage guidelines
+
+The primary button is used for the most important action on a page or in a view. The transparent secondary button with a thin frame is used for subordinate actions. The text button is applied as a subtle call to action.
+
+## Dos
+
+- Button labels:
+  - Must describe the action the button performs
+  - Should include a verb
+  - Concise, specific, self-explanatory labels
+  - Always include a noun if there is any room for interpretation about what the verb operates on
+- Place buttons in consistent locations in the user interface for best user experience
+- Use aria status / alert elements when applying the loading state.
+
+## Don’ts
+
+- Button labels:
+  - No use of generic labels like "Ok" especially in the case of an error, errors are never "Ok"
+- Do not use a button for a text link or navigation item
+- Do not use two primary buttons in a button group
+- Do not use a primary button with a text button in a button group
+
+## Use cases
+
+- Key calls to action, such as "Request a quote" or "Reserve an e-tron."
+- Supporting calls to action, such as "Learn more" or "Explore."
+- Legal calls to action, such as "View key offer details."
+- Alongside an input field, when there is an action to be taken after the user has inputted their information (e.g. searching for nearby dealers based on the user's location).
+
+## Props
+
+| Name        | Type                  | Default         | Description                                                       |
+| ----------- | --------------------- | --------------- | ----------------------------------------------------------------- |
+| `label`     | `string`              | `undefined`     | The text to display inside the button.                            |
+| `variant`   | `string`              | `'primary'`     | The variant of the button (`primary`, `secondary`, `text`).       |
+| `themeName` | `string`              | `'yellowTheme'` | The theme color for the button.                                   |
+| `size`      | `string`              | `'medium'`      | The size of the button (`small`, `medium`, `large`, `fullWidth`). |
+| `icon`      | `React.ComponentType` | `undefined`     | The icon to display inside the button.                            |
+| `loading`   | `boolean`             | `false`         | Whether the button shows a loading spinner.                       |
+| `disabled`  | `boolean`             | `false`         | Whether the button is disabled.                                   |
+| `onClick`   | `function`            | `undefined`     | The click handler function.                                       |
+
+## Examples
+
+### Primary Button
+
+A primary button with an icon and label.
+
+```jsx
+<Button
+  label="Primary Button"
+  variant="primary"
+  themeName="yellowTheme"
+  size="medium"
+  icon={FaBeer}
+  onClick={() => alert("Button clicked!")}
+/>
+```

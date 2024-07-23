@@ -6,6 +6,9 @@ export default {
   component: Button,
   parameters: {
     layout: "centered",
+    docs: {
+      page: () => import("./Button.mdx"), // Reference the MDX file
+    },
   },
   argTypes: {
     variant: {
@@ -27,7 +30,7 @@ export default {
       control: { type: "boolean" },
     },
   },
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
 };
 
 export const Primary = {
