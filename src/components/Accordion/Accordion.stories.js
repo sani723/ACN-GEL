@@ -44,7 +44,7 @@ const items = [
 export const Default = {
   args: {
     items,
-    theme: "blueTheme",
+    theme: "greenTheme",
   },
 };
 

@@ -43,7 +43,7 @@ const Accordion = ({
   const selectedTheme = colors[theme] || colors["greenTheme"];
 
   return (
-    <Container>
+    <ACNAccordion>
       {items.map((item, index) => (
         <AccordionItem
           key={index}
@@ -54,11 +54,11 @@ const Accordion = ({
           theme={selectedTheme}
         />
       ))}
-    </Container>
+    </ACNAccordion>
   );
 };
 
-const Container = styled.div`
+const ACNAccordion = styled.div`
   border: 1px solid #ddd;
 `;
 
