@@ -1,5 +1,5 @@
-import React from "react";
 import Accordion from "./Accordion";
+import GlobalStyles from "../../utils/GlobalStyles";
 
 export default {
   title: "Components/Accordion",
@@ -16,8 +16,8 @@ export default {
     multiOpen: {
       control: { type: "boolean" },
     },
-    theme: {
-      options: ["yellowTheme", "greenTheme", "blueTheme"],
+    themeName: {
+      options: ["light", "dark"],
       control: { type: "select" },
     },
   },
@@ -41,25 +41,29 @@ const items = [
   },
 ];
 
-export const Default = {
-  args: {
-    items,
-    theme: "greenTheme",
-  },
+const Template = (args) => (
+  <>
+    <GlobalStyles themeName={args.themeName} />
+    <Accordion {...args}></Accordion>
+  </>
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  items,
+  themeName: "light",
 };
 
-export const WithDefaultOpen = {
-  args: {
-    items,
-    defaultOpenIndex: 0,
-    theme: "greenTheme",
-  },
+export const WithDefaultOpen = Template.bind({});
+WithDefaultOpen.args = {
+  items,
+  defaultOpenIndex: 0,
+  themeName: "light",
 };
 
-export const MultiOpen = {
-  args: {
-    items,
-    multiOpen: true,
-    theme: "greenTheme",
-  },
+export const MultiOpen = Template.bind({});
+MultiOpen.args = {
+  items,
+  multiOpen: true,
+  themeName: "light",
 };

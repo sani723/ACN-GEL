@@ -1,26 +1,29 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import colors from "../../utils/colors";
 
-const AccordionItem = ({ title, content, isOpen, onClick, theme }) => (
-  <Item>
-    <Title onClick={onClick} theme={theme}>
-      {title}
-      <Icon isOpen={isOpen}> {isOpen ? "-" : "+"} </Icon>
-    </Title>
-    {isOpen && <Content theme={theme}>{content}</Content>}
-  </Item>
-);
+const AccordionItem = ({ title, content, isOpen, onClick, themeName }) => {
+  const selectedTheme = colors.theme[themeName];
+  return (
+    <Item>
+      <Title onClick={onClick} theme={selectedTheme}>
+        {title}
+        <Icon isOpen={isOpen}> {isOpen ? "-" : "+"} </Icon>
+      </Title>
+      {isOpen && <Content theme={selectedTheme}>{content}</Content>}
+    </Item>
+  );
+};
 
 const Accordion = ({
   items,
   defaultOpenIndex = null,
   multiOpen = false,
-  theme = "greenTheme",
+  themeName = "light",
 }) => {
   const [openIndexes, setOpenIndexes] = useState([]);
+  //const theme = colors.theme[themeName];
 
   useEffect(() => {
     if (defaultOpenIndex !== null) {
@@ -40,8 +43,9 @@ const Accordion = ({
     }
   };
 
-  const selectedTheme = colors[theme] || colors["greenTheme"];
-
+  //const selectedTheme = colors.theme[themeName] || colors["light"];
+  //const selectedTheme = colors.theme[themeName];
+  //console.log(selectedTheme);
   return (
     <ACNAccordion>
       {items.map((item, index) => (
@@ -51,7 +55,7 @@ const Accordion = ({
           content={item.content}
           isOpen={openIndexes.includes(index)}
           onClick={() => handleClick(index)}
-          theme={selectedTheme}
+          themeName={themeName}
         />
       ))}
     </ACNAccordion>
@@ -76,7 +80,8 @@ const Title = styled.div`
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  background-color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.secondaryText};
+  background-color: ${(props) => props.theme.surface};
 `;
 
 const Icon = styled.span`
