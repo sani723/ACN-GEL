@@ -53,6 +53,13 @@ const baseStyle = css`
   align-items: center;
   justify-content: center;
   position: relative;
+  font-family: "Nunito Sans", sans-serif;
+
+  span {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 
   &:disabled {
     cursor: not-allowed;
