@@ -1,46 +1,40 @@
-// const colors = {
-//   primary: "#007bff",
-//   secondary: "#6c757d",
-//   success: "#28a745",
-//   danger: "#dc3545",
-//   warning: "#ffc107",
-//   info: "#17a2b8",
-//   light: "#f8f9fa",
-//   dark: "#343a40",
-// };
-
 const colors = {
-  yellowTheme: {
-    primary: "#fdd835",
-    secondary: "#fbc02d",
-    background: "#fffde7",
-    text: "#212121",
-    success: "#28a745",
-    danger: "#dc3545",
-    warning: "#ffc107",
-    info: "#17a2b8",
+  theme: {
+    light: {
+      primaryText: "#000000",
+      secondaryText: "#555555",
+      background: "#FFFFFF",
+      surface: "#F5F5F5",
+      borders: "#DDDDDD",
+    },
+    dark: {
+      primaryText: "#FFFFFF",
+      secondaryText: "#BBBBBB",
+      background: "#121212",
+      surface: "#1E1E1E",
+      borders: "#333333",
+    },
   },
-
-  greenTheme: {
-    primary: "#66bb6a",
-    secondary: "#43a047",
-    background: "#e8f5e9",
-    text: "#212121",
-    success: "#28a745",
-    danger: "#dc3545",
-    warning: "#ffc107",
-    info: "#17a2b8",
+  status: {
+    success: "#28A745",
+    warning: "#FFC107",
+    error: "#DC3545",
+    info: "#17A2B8",
   },
-
-  blueTheme: {
-    primary: "#42a5f5",
-    secondary: "#1e88e5",
-    background: "#e3f2fd",
-    text: "#212121",
-    success: "#28a745",
-    danger: "#dc3545",
-    warning: "#ffc107",
-    info: "#17a2b8",
+  functional: {
+    "Grey 0": "#ffffff",
+    "Grey 5": "#f2f2f2",
+    "Grey 10": "#e5e5e5",
+    "Grey 15": "#d9d9d9",
+    "Grey 20": "#cccccc",
+    "Grey 30": "#b3b3b3",
+    "Grey 40": "#999999",
+    "Grey 50": "#808080",
+    "Grey 60": "#666666",
+    "Grey 70": "#4c4c4c",
+    "Grey 80": "#333333",
+    "Grey 90": "#1a1a1a",
+    "Grey 100": "#000000",
   },
 };
 
