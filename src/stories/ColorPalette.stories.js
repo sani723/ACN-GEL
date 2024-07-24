@@ -1,40 +1,106 @@
 import React from "react";
-import { yellowTheme, greenTheme, blueTheme } from "../utils/themes";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+
+import colors from "../utils/colors"; // Ensure the path to colors.js is correct
 
 export default {
   title: "Design System/Color Palette",
 };
 
 const ColorBox = ({ color, name }) => (
-  <div style={{ margin: "10px", textAlign: "center" }}>
-    <div
-      style={{
-        backgroundColor: color,
-        width: "100px",
-        height: "100px",
-        borderRadius: "4px",
-      }}
-    ></div>
-    <p>{name}</p>
-    <p>{color}</p>
-  </div>
+  <Tbody>
+    <Tr>
+      <Td>
+        <Item color={color}></Item>
+      </Td>
+      <Td>{name.replace("status.", "")}</Td>
+      <Td>{color.toLowerCase()}</Td>
+    </Tr>
+  </Tbody>
 );
 
 const ThemePalette = ({ theme, themeName }) => (
-  <div style={{ marginBottom: "20px" }}>
-    <h2>{themeName} Theme</h2>
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {Object.keys(theme).map((key) => (
-        <ColorBox key={key} color={theme[key]} name={key} />
-      ))}
-    </div>
-  </div>
+  <Container>
+    <h2>
+      {themeName.toLowerCase() === "light" || themeName.toLowerCase() === "dark"
+        ? `${themeName} Theme`
+        : `${themeName}`}
+    </h2>
+    <Table>
+      <Thead>
+        <Tr>
+          <Th>Color</Th>
+          <Th>Name</Th>
+          <Th>Value</Th>
+        </Tr>
+      </Thead>
+      {Object.keys(theme).map((key) => {
+        const color = theme[key];
+        if (typeof color === "object") {
+          return Object.keys(color).map((subKey) => (
+            <ColorBox
+              key={`${key}.${subKey}`}
+              color={color[subKey]}
+              name={`${key}.${subKey}`}
+            />
+          ));
+        }
+        return <ColorBox key={key} color={theme[key]} name={key} />;
+      })}
+    </Table>
+  </Container>
 );
 
 export const Palette = () => (
   <div>
-    <ThemePalette theme={yellowTheme} themeName="Yellow" />
-    <ThemePalette theme={greenTheme} themeName="Green" />
-    <ThemePalette theme={blueTheme} themeName="Blue" />
+    <ThemePalette theme={colors.theme.light} themeName="Light" />
+    <ThemePalette theme={colors.theme.dark} themeName="Dark" />
+    <ThemePalette theme={colors.status} themeName="Status" />
+    <ThemePalette theme={colors.functional} themeName="Functional Grey Tones" />
   </div>
 );
+
+const Table = styled.table`
+  width: 80%;
+  border-collapse: collapse;
+`;
+
+const Thead = styled.thead`
+  background-color: #f5f5f5;
+`;
+
+const Tbody = styled.tbody`
+  background-color: #ffffff;
+`;
+
+const Tr = styled.tr`
+  &:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+`;
+
+const Th = styled.th`
+  padding: 12px;
+  border: 1px solid #dddddd;
+  text-align: left;
+  background-color: #333333;
+  color: white;
+`;
+
+const Td = styled.td`
+  padding: 12px;
+  border: 1px solid #dddddd;
+  text-align: left;
+`;
+
+const Container = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Item = styled.div`
+  background-color: ${(props) => props.color};
+  width: 200px;
+  height: 20px;
+  border: 1px solid #dddddd;
+`;
