@@ -22,11 +22,11 @@ const ColorBox = ({ color, name }) => (
 
 const ThemePalette = ({ theme, themeName }) => (
   <Container>
-    <h2>
+    <SectionTitle>
       {themeName.toLowerCase() === "light" || themeName.toLowerCase() === "dark"
         ? `${themeName} Theme`
         : `${themeName}`}
-    </h2>
+    </SectionTitle>
     <Table>
       <Thead>
         <Tr>
@@ -64,6 +64,7 @@ export const Palette = () => (
 const Table = styled.table`
   width: 80%;
   border-collapse: collapse;
+  font-family: "Nunito Sans", sans-serif;
 `;
 
 const Thead = styled.thead`
@@ -96,6 +97,10 @@ const Td = styled.td`
 
 const Container = styled.div`
   margin-bottom: 20px;
+`;
+
+const SectionTitle = styled.h2`
+  font-family: "Nunito Sans", sans-serif;
 `;
 
 const Item = styled.div`
