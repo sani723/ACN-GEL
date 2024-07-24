@@ -51,7 +51,7 @@ The primary button is used for the most important action on a page or in a view.
 | ----------- | --------------------- | --------------- | ----------------------------------------------------------------- |
 | label     | string              | undefined     | The text to display inside the button.                            |
 | variant   | string              | 'primary'     | The variant of the button (primary, secondary, text).       |
-| themeName | string              | 'yellowTheme' | The theme color for the button.                                   |
+| themeName | string              | 'light' | The theme color for the button.                                   |
 | size      | string              | 'medium'      | The size of the button (small, medium, large, fullWidth). |
 | icon      | React.ComponentType | undefined     | The icon to display inside the button.                            |
 | loading   | boolean             | false         | Whether the button shows a loading spinner.                       |
@@ -70,7 +70,7 @@ A primary button with an icon and label.
 <Button
   label="Primary Button"
   variant="primary"
-  themeName="yellowTheme"
+  themeName="light"
   size="medium"
   icon={FaBeer}
   onClick={() => alert("Button clicked!")}

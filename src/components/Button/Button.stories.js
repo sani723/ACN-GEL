@@ -1,5 +1,6 @@
 import Button from "./Button";
 import { FaBookmark, FaInstagram, FaHeart } from "react-icons/fa";
+import GlobalStyles from "../../utils/GlobalStyles";
 
 export default {
   title: "Components/Button",
@@ -16,7 +17,7 @@ export default {
       control: { type: "radio" },
     },
     themeName: {
-      options: ["yellowTheme", "greenTheme", "blueTheme"],
+      options: ["light", "dark"],
       control: { type: "select" },
     },
     size: {
@@ -33,113 +34,111 @@ export default {
   // tags: ["autodocs"],
 };
 
-export const Primary = {
-  args: {
-    label: "Primary Button",
-    variant: "primary",
-    themeName: "greenTheme",
-    size: "medium",
-    loading: false,
-    disabled: false,
-    rounded: false,
-  },
+const Template = (args) => (
+  <>
+    <GlobalStyles themeName={args.themeName} />
+    <Button {...args}>Button</Button>
+  </>
+);
+
+export const Primary = Template.bind({});
+Primary.args = {
+  label: "Primary Button",
+  variant: "primary",
+  themeName: "light",
+  size: "medium",
+  loading: false,
+  disabled: false,
+  rounded: false,
 };
 
-export const PrimaryWithIcon = {
-  args: {
-    label: "Primary Button",
-    variant: "primary",
-    themeName: "greenTheme",
-    size: "large",
-    icon: FaBookmark,
-    loading: false,
-    disabled: false,
-    rounded: false,
-  },
+export const PrimaryWithIcon = Template.bind({});
+PrimaryWithIcon.args = {
+  label: "Primary Button",
+  variant: "primary",
+  themeName: "light",
+  size: "large",
+  icon: FaBookmark,
+  loading: false,
+  disabled: false,
+  rounded: false,
 };
 
-export const PrimaryIcon = {
-  args: {
-    variant: "primary",
-    themeName: "greenTheme",
-    size: "large",
-    icon: FaInstagram,
-    loading: false,
-    disabled: false,
-    rounded: false,
-  },
+export const PrimaryIcon = Template.bind({});
+PrimaryIcon.args = {
+  variant: "primary",
+  themeName: "light",
+  size: "large",
+  icon: FaInstagram,
+  loading: false,
+  disabled: false,
+  rounded: false,
 };
 
-export const PrimaryLoading = {
-  args: {
-    label: "Primary Button",
-    variant: "primary",
-    themeName: "greenTheme",
-    size: "large",
-    icon: FaBookmark,
-    loading: true,
-    disabled: false,
-    rounded: false,
-  },
+export const PrimaryLoading = Template.bind({});
+PrimaryLoading.args = {
+  label: "Primary Button",
+  variant: "primary",
+  themeName: "light",
+  size: "large",
+  icon: FaBookmark,
+  loading: true,
+  disabled: false,
+  rounded: false,
 };
 
-export const PrimaryDisabled = {
-  args: {
-    label: "Primary Button",
-    variant: "primary",
-    themeName: "greenTheme",
-    size: "large",
-    loading: false,
-    disabled: true,
-    rounded: false,
-  },
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+  label: "Primary Button",
+  variant: "primary",
+  themeName: "light",
+  size: "large",
+  loading: false,
+  disabled: true,
+  rounded: false,
 };
 
-export const Secondary = {
-  args: {
-    label: "Secondary Button",
-    variant: "secondary",
-    onClick: () => alert("Button Clicked!"),
-    themeName: "greenTheme",
-    size: "large",
-    loading: false,
-    disabled: false,
-    rounded: false,
-  },
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: "Secondary Button",
+  variant: "secondary",
+  onClick: () => alert("Button Clicked!"),
+  themeName: "light",
+  size: "large",
+  loading: false,
+  disabled: false,
+  rounded: false,
 };
 
-export const SecondaryIcon = {
-  args: {
-    variant: "secondary",
-    themeName: "greenTheme",
-    size: "large",
-    icon: FaHeart,
-    loading: false,
-    disabled: false,
-    rounded: false,
-  },
+export const SecondaryIcon = Template.bind({});
+SecondaryIcon.args = {
+  variant: "secondary",
+  themeName: "light",
+  size: "large",
+  icon: FaHeart,
+  loading: false,
+  disabled: false,
+  rounded: false,
 };
 
-export const SecondaryIconRounded = {
-  args: {
-    variant: "secondary",
-    themeName: "greenTheme",
-    size: "large",
-    icon: FaHeart,
-    loading: false,
-    disabled: false,
-    rounded: true,
-  },
+export const SecondaryIconRounded = Template.bind({});
+SecondaryIconRounded.args = {
+  variant: "secondary",
+  themeName: "light",
+  size: "large",
+  icon: FaHeart,
+  loading: false,
+  disabled: false,
+  rounded: true,
 };
 
-export const TextButton = {
-  args: {
-    label: "Text Button",
-    variant: "text",
-    themeName: "greenTheme",
-    size: "large",
-    loading: false,
-    disabled: false,
-    rounded: false,
-  },
+export const TextButton = Template.bind({});
+TextButton.args = {
+  label: "Text Button",
+  variant: "text",
+  themeName: "light",
+  size: "large",
+  loading: false,
+  disabled: false,
+  rounded: false,
 };

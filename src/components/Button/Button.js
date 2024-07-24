@@ -17,7 +17,7 @@ const Button = ({
   loading,
   disabled,
 }) => {
-  const theme = colors[themeName];
+  const theme = colors.theme[themeName];
   return (
     <ACNButton
       variant={variant}
@@ -87,25 +87,25 @@ const sizeStyles = {
 
 const variantStyles = {
   primary: (theme) => css`
-    background-color: ${theme.primary};
-    color: white;
+    background-color: ${theme.primaryText};
+    color: ${theme.background};
 
     &:hover:not(:disabled) {
-      background-color: ${darken(0.1, theme.primary)};
+      background-color: ${darken(0.1, theme.primaryText)};
     }
   `,
   secondary: (theme) => css`
-    background-color: white;
-    color: ${theme.primary};
-    border: 1px solid ${theme.primary};
+    background-color: ${theme.background};
+    color: ${theme.primaryText};
+    border: 1px solid ${theme.borders};
 
     &:hover:not(:disabled) {
-      background-color: ${theme.background};
+      background-color: ${theme.surface};
     }
   `,
   text: (theme) => css`
     background-color: transparent;
-    color: ${theme.primary};
+    color: ${theme.primaryText};
     border: none;
 
     &:hover:not(:disabled) {
