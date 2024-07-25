@@ -1,0 +1,79 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
+import * as AvatarStories from "./Avatar.stories";
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+Avatar components are visual representations of a user or entity. They can contain either characters on a neutral background, or an image, typically set by the user.
+
+Typically they will be used to represent an individual account holder or internal tool user.
+
+## Usage guidelines
+
+<Canvas>
+  <Story name="Default">
+    <AvatarStories.Default />
+  </Story>
+</Canvas>
+
+### Image
+
+Where possible, allow a user to include an image with their avatar to give the user the impression of personalized content even more. Images passed to the component are cropped into a circle.
+
+### Text
+
+Text avatars should be used when there is no image available for the user, or as a fallback when the user defined image fails to display. The font size is set to allow a maximum of 2 characters of Latin script at the small size.
+
+### Icon
+
+Alternative solution to the initials. Only the icon “user ” will be used for the component.
+
+### Sizes
+
+#### Small
+
+The smallest size is intended to be used in headers or when there may be multiple avatars in close proximity, such as a list of users.
+
+#### Medium
+
+Medium size should be used on sidebars, or elsewhere when the avatar takes up a more prominent position than in the header.
+
+#### Large
+
+The largest size is intended primarily for use on profile pages, where a user may want to review the photo they have, and where it takes a prominent position on the page. Often this can be combined with an edit button close by.
+
+## Best practices
+
+- Always include a user's initials when available.
+- Where possible, make the avatar selectable and take the user to a profile page if applicable.
+- The number of user initials displayed is left up to the implementer, ensure consistency across all instances where you use the components.
+- If using in conjunction with badges, ensure consistency in placement for each use case (e.g. presence indicator / notifications).
+
+## Available props
+
+<Markdown>
+  {`
+| Name        | Type              | Default     | Description                                                    |
+| ----------- | ----------------- | ----------- | -------------------------------------------------------------- |
+| label     | string          | undefined | The text to display inside the avatar if no image is provided. |
+| size      | string          | medium  | The size of the avatar (small, medium, large).     |
+| src       | string          | undefined | The URL of the image to display.                               |
+| icon      | React.Component | FaUser    | The icon to display if no image or text is provided.           |
+| alt       | string          | undefined | The alt text for the image.                                    |
+| ariaLabel | string          | undefined | The aria-label for the avatar.                                 |
+| role      | string          | undefined | The role attribute for the avatar.                             |
+| className | string          | undefined | Additional classes to apply to the avatar.                     |
+`}
+</Markdown>
+
+## Examples
+
+### Basic Avatar
+
+```jsx
+import Avatar from "./Avatar";
+
+<Avatar label="A" size="medium" aria-label="User Avatar" />;
+```
