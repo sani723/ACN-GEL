@@ -20,7 +20,7 @@ export default {
       control: { type: "select" },
     },
     variant: {
-      options: ["success", "error", "info", "warning"],
+      options: ["default", "success", "error", "info", "warning", "outline"],
       control: { type: "select" },
     },
   },
@@ -37,7 +37,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: "Default Badge",
   type: "standard",
-  variant: "info",
+  variant: "default",
   ariaLabel: "badge",
   role: "status",
   className: "",
@@ -60,24 +60,24 @@ PillBadge.args = {
   themeName: "light",
 };
 
-export const AlertBadge = Template.bind({});
-AlertBadge.args = {
+export const ErrorBadge = Template.bind({});
+ErrorBadge.args = {
   ...Default.args,
   label: "Error",
   variant: "error",
   themeName: "light",
 };
 
-export const PositiveBadge = Template.bind({});
-PositiveBadge.args = {
+export const SuccessBadge = Template.bind({});
+SuccessBadge.args = {
   ...Default.args,
   label: "Success",
   variant: "success",
   themeName: "light",
 };
 
-export const NegativeBadge = Template.bind({});
-NegativeBadge.args = {
+export const WarningBadge = Template.bind({});
+WarningBadge.args = {
   ...Default.args,
   label: "Warning",
   variant: "warning",
@@ -92,10 +92,10 @@ InformativeBadge.args = {
   themeName: "light",
 };
 
-export const NoticeBadge = Template.bind({});
-NoticeBadge.args = {
+export const OutlineBadge = Template.bind({});
+OutlineBadge.args = {
   ...Default.args,
-  label: "Warning",
-  variant: "warning",
+  label: "Message",
+  variant: "outline",
   themeName: "light",
 };

@@ -53,9 +53,15 @@ const getVariants = (variant, statusColors) => {
         background-color: ${statusColors.info};
         color: white;
       `;
+    case "outline":
+      return css`
+        background-color: "transparent";
+        border: 1px solid #000;
+        color: #000;
+      `;
     default:
       return css`
-        background-color: ${statusColors.info};
+        background-color: #ccc;
         color: white;
       `;
   }
