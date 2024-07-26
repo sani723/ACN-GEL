@@ -52,7 +52,7 @@ const Card = ({
       {image && imagePosition === "bottom" && !backgroundImage && (
         <Image src={image} position={imagePosition} />
       )}
-      {showFooter && <Footer>{footer}</Footer>}
+      {showFooter && <Footer theme={theme}>{footer}</Footer>}
     </CardContainer>
   );
 };
@@ -111,41 +111,9 @@ const getCardVariants = (styleType, statusColors, theme) => {
       return css`
         background-color: white;
         color: #000;
-        border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
+        border: 1px solid #ccc;
       `;
   }
-
-  //   primary: css`
-  //     background-color: #007bff;
-  //     color: white;
-  //   `,
-  //   secondary: css`
-  //     background-color: #6c757d;
-  //     color: white;
-  //   `,
-  //   success: css`
-  //     background-color: #28a745;
-  //     color: white;
-  //   `,
-  //   danger: css`
-  //     background-color: #dc3545;
-  //     color: white;
-  //   `,
-  //   warning: css`
-  //     background-color: #ffc107;
-  //     color: white;
-  //   `,
-  //   info: css`
-  //     background-color: #17a2b8;
-  //     color: white;
-  //   `,
-  //   outline: css`
-  //     background-color: transparent;
-  //     border: 1px solid #6c757d;
-  //     color: #6c757d;
-  //   `,
 };
 
 const CardContainer = styled.div`
@@ -213,7 +181,8 @@ const Button = styled.button`
 
 const Footer = styled.div`
   padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: ${(props) => props.theme.surface};
+  color: ${(props) => props.theme.primaryText};
 `;
 
 export default Card;

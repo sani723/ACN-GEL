@@ -58,10 +58,7 @@ const Template = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   title: "Card Title",
-  subtitle: "Card Subtitle",
   body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-  links: <a href="#">Link</a>,
-  button: "Button",
   image:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Dubai_Marina_Skyline.jpg/1024px-Dubai_Marina_Skyline.jpg",
   imagePosition: "top",
@@ -78,10 +75,10 @@ Default.args = {
   showFooter: false,
 };
 
-export const WithoutImage = Template.bind({});
-WithoutImage.args = {
+export const WithSubTitle = Template.bind({});
+WithSubTitle.args = {
   ...Default.args,
-  image: "",
+  subtitle: "Card Subtitle",
 };
 
 export const WithBackgroundImage = Template.bind({});
@@ -90,13 +87,10 @@ WithBackgroundImage.args = {
   backgroundImage: true,
 };
 
-export const WithHeaderFooter = Template.bind({});
-WithHeaderFooter.args = {
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
   ...Default.args,
-  header: "Header",
-  footer: "Footer",
-  showHeader: true,
-  showFooter: true,
+  image: "",
 };
 
 export const WithDifferentImagePosition = Template.bind({});
@@ -115,4 +109,20 @@ export const FullBleedSize = Template.bind({});
 FullBleedSize.args = {
   ...Default.args,
   size: "fullBleed",
+};
+
+export const WithHeaderFooter = Template.bind({});
+WithHeaderFooter.args = {
+  ...Default.args,
+  header: "Header",
+  footer: "Footer",
+  showHeader: true,
+  showFooter: true,
+};
+
+export const WithLinkAndButton = Template.bind({});
+WithLinkAndButton.args = {
+  ...Default.args,
+  links: <a href="#">Link</a>,
+  button: "Button",
 };
