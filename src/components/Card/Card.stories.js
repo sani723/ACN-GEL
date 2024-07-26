@@ -59,8 +59,7 @@ export const Default = Template.bind({});
 Default.args = {
   title: "Card Title",
   body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-  image:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Dubai_Marina_Skyline.jpg/1024px-Dubai_Marina_Skyline.jpg",
+  image: "/dubai-burj-thumb.jpg",
   imagePosition: "top",
   backgroundImage: false,
   header: "Card Header",

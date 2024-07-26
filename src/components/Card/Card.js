@@ -37,6 +37,7 @@ const Card = ({
       image={image}
       className={className}
       statusColors={statusColors}
+      imagePosition={imagePosition}
     >
       {showHeader && <Header theme={theme}>{header}</Header>}
       {image && imagePosition === "top" && !backgroundImage && (
@@ -49,9 +50,11 @@ const Card = ({
         {links && <Links>{links}</Links>}
         {button && <Button>{button}</Button>}
       </CardContent>
-      {image && imagePosition === "bottom" && !backgroundImage && (
-        <Image src={image} position={imagePosition} />
-      )}
+      {image &&
+        (imagePosition === "bottom" ||
+          imagePosition === "left" ||
+          imagePosition === "right") &&
+        !backgroundImage && <Image src={image} position={imagePosition} />}
       {showFooter && <Footer theme={theme}>{footer}</Footer>}
     </CardContainer>
   );
@@ -117,7 +120,10 @@ const getCardVariants = (styleType, statusColors, theme) => {
 };
 
 const CardContainer = styled.div`
-  width: ${(props) => cardSizes[props.size]};
+  width: ${(props) =>
+    props.imagePosition === "left" || props.imagePosition === "right"
+      ? "100%"
+      : cardSizes[props.size]};
   border: ${(props) => (props.border ? "1px solid #ddd" : "none")};
   border-radius: 4px;
   overflow: hidden;
@@ -129,6 +135,20 @@ const CardContainer = styled.div`
   background-size: cover;
   background-position: center;
   position: relative;
+  display: flex;
+  justify-content: ${(props) =>
+    props.imagePosition === "left" ? "left" : "space-between"};
+  flex-direction: ${(props) =>
+    props.imagePosition === "left"
+      ? "row-reverse"
+      : props.imagePosition === "right"
+        ? "row"
+        : "column"};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const Header = styled.div`
@@ -138,10 +158,18 @@ const Header = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: ${(props) =>
+    props.position === "left" || props.position === "right"
+      ? "100pxauto"
+      : "100%"};
   height: ${(props) =>
     props.position === "top" || props.position === "bottom" ? "auto" : "100%"};
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const CardContent = styled.div`
