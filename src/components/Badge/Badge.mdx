@@ -1,0 +1,59 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
+import * as BadgeStories from "./Badge.stories";
+import Badge from "./Badge";
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Badges are labels that hold small amounts of information. They are used in conjunction with another component to draw attention to a change the user may want to review, such as a new message or cart item.
+
+## Usage guidelines
+
+Use the badge to represent unread notifications on the web app.
+
+<Canvas>
+  <Story name="Default">
+    <BadgeStories.Default />
+  </Story>
+</Canvas>
+
+## Best practices
+
+- Use badges for counts of important information, in close proximity to the relevant item.
+- Use badges to notify or draw attention to changed values or status.
+- A small dot badge notifies the user that something is new or updated without showing a count, such as an "unread report", or activity notification. It may be useful as a less prominent badge, even when the count is known.
+- Always maintain the same position in relation to the anchor element for the same usage of the badge.
+
+## Available props
+
+<Markdown>
+  {`
+| Name        | Type    | Default         | Description                                                     |
+|-------------|---------|-----------------|-----------------------------------------------------------------|
+| label     | string| undefined     | The text to display inside the badge.                           |
+| type      | string| standard    | The type of the badge (circle, pill, standard).     |
+| variant   | string| informative | The variant of the badge (alert, positive, negative, informative, notice). |
+| ariaLabel | string| undefined     | The aria-label for the badge.                                   |
+| role      | string| undefined     | The role attribute for the badge.                               |
+| className | string| undefined     | Additional classes to apply to the badge.                       |
+| themeMode | string| 'light'       | The theme mode to apply to the badge.                           |
+`}
+</Markdown>
+
+## Examples
+
+### Basic Badge
+
+```jsx
+import Badge from "./Badge";
+
+<Badge
+  label="Default Badge"
+  type="standard"
+  variant="informative"
+  aria-label="badge"
+  role="status"
+/>;
+```
