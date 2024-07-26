@@ -1,169 +1,99 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import colors from "../styles/themes"; // Ensure you import the theme file
+import Card from "./Card";
 
-const Card = ({
-  title,
-  subtitle,
-  body,
-  links,
-  button,
-  image,
-  imagePosition = "top",
-  backgroundImage = false,
-  header,
-  footer,
-  border = false,
-  size = "default",
-  textAlign = "left",
-  styleType = "primary",
-  className,
-  themeMode = "light",
-}) => {
-  const themeColors = colors.theme[themeMode];
-  const cardStyles = colors.status;
-
-  return (
-    <CardContainer
-      size={size}
-      border={border}
-      textAlign={textAlign}
-      styleType={styleType}
-      themeColors={themeColors}
-      backgroundImage={backgroundImage}
-      image={image}
-      className={className}
-    >
-      {header && <Header themeColors={themeColors}>{header}</Header>}
-      {image && imagePosition === "top" && !backgroundImage && (
-        <Image src={image} position={imagePosition} />
-      )}
-      <CardContent>
-        {title && <Title>{title}</Title>}
-        {subtitle && <Subtitle>{subtitle}</Subtitle>}
-        {body && <Body>{body}</Body>}
-        {links && <Links>{links}</Links>}
-        {button && <Button>{button}</Button>}
-      </CardContent>
-      {image && imagePosition === "bottom" && !backgroundImage && (
-        <Image src={image} position={imagePosition} />
-      )}
-      {footer && <Footer>{footer}</Footer>}
-    </CardContainer>
-  );
+export default {
+  title: "Components/Card",
+  component: Card,
+  parameters: {
+    docs: {
+      page: () => import("./Card.mdx"), // Reference the MDX file if you want to use MDX documentation
+    },
+  },
+  argTypes: {
+    imagePosition: {
+      control: { type: "select", options: ["top", "bottom", "left", "right"] },
+    },
+    size: {
+      control: { type: "select", options: ["default", "medium", "fullBleed"] },
+    },
+    textAlign: {
+      control: { type: "select", options: ["left", "right", "center"] },
+    },
+    styleType: {
+      control: {
+        type: "select",
+        options: [
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "warning",
+          "info",
+          "outline",
+        ],
+      },
+    },
+    themeMode: {
+      control: { type: "select", options: ["light", "dark"] },
+    },
+  },
 };
 
-const cardSizes = {
-  default: "286px",
-  medium: "400px",
-  fullBleed: "100%",
+const Template = (args) => <Card {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  title: "Card Title",
+  subtitle: "Card Subtitle",
+  body: "This is the body of the card.",
+  links: <a href="#">Link</a>,
+  button: "Button",
+  image: "https://via.placeholder.com/150",
+  imagePosition: "top",
+  backgroundImage: false,
+  header: "Card Header",
+  footer: "Card Footer",
+  border: true,
+  size: "default",
+  textAlign: "left",
+  styleType: "primary",
+  className: "",
+  themeMode: "light",
 };
 
-const textAlignments = {
-  left: "left",
-  right: "right",
-  center: "center",
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
+  ...Default.args,
+  image: "",
 };
 
-const cardVariants = {
-  primary: css`
-    background-color: #007bff;
-    color: white;
-  `,
-  secondary: css`
-    background-color: #6c757d;
-    color: white;
-  `,
-  success: css`
-    background-color: #28a745;
-    color: white;
-  `,
-  danger: css`
-    background-color: #dc3545;
-    color: white;
-  `,
-  warning: css`
-    background-color: #ffc107;
-    color: white;
-  `,
-  info: css`
-    background-color: #17a2b8;
-    color: white;
-  `,
-  outline: css`
-    background-color: transparent;
-    border: 1px solid #6c757d;
-    color: #6c757d;
-  `,
+export const WithBackgroundImage = Template.bind({});
+WithBackgroundImage.args = {
+  ...Default.args,
+  backgroundImage: true,
 };
 
-const CardContainer = styled.div`
-  width: ${(props) => cardSizes[props.size]};
-  border: ${(props) => (props.border ? "1px solid #ddd" : "none")};
-  border-radius: 4px;
-  overflow: hidden;
-  text-align: ${(props) => textAlignments[props.textAlign]};
-  ${(props) => cardVariants[props.styleType]}
-  background-image: ${(props) =>
-    props.backgroundImage ? `url(${props.image})` : "none"};
-  background-size: cover;
-  background-position: center;
-  position: relative;
-`;
+export const WithHeaderFooter = Template.bind({});
+WithHeaderFooter.args = {
+  ...Default.args,
+  header: "Header",
+  footer: "Footer",
+};
 
-const Header = styled.div`
-  padding: 1rem;
-  background-color: ${(props) => props.themeColors.surface};
-  color: ${(props) => props.themeColors.primaryText};
-`;
+export const WithDifferentImagePosition = Template.bind({});
+WithDifferentImagePosition.args = {
+  ...Default.args,
+  imagePosition: "left",
+};
 
-const Image = styled.img`
-  width: 100%;
-  height: ${(props) =>
-    props.position === "top" || props.position === "bottom" ? "auto" : "100%"};
-  object-fit: cover;
-`;
+export const MediumSize = Template.bind({});
+MediumSize.args = {
+  ...Default.args,
+  size: "medium",
+};
 
-const CardContent = styled.div`
-  padding: 1rem;
-`;
-
-const Title = styled.h2`
-  margin: 0 0 0.5rem 0;
-`;
-
-const Subtitle = styled.h4`
-  margin: 0 0 1rem 0;
-  font-weight: normal;
-`;
-
-const Body = styled.p`
-  margin: 0 0 1rem 0;
-`;
-
-const Links = styled.div`
-  margin: 1rem 0;
-`;
-
-const Button = styled.button`
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-
-const Footer = styled.div`
-  padding: 1rem;
-  background-color: #f8f9fa;
-`;
-
-export default Card;
+export const FullBleedSize = Template.bind({});
+FullBleedSize.args = {
+  ...Default.args,
+  size: "fullBleed",
+};
