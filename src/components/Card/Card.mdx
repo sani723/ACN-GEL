@@ -1,0 +1,92 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import * as CardStories from "./Card.stories";
+
+<Meta of={CardStories} />
+
+# Card
+
+The `Card` component displays a content container with various configurations.
+
+## Usage
+
+<Canvas>
+  <Story name="Default">
+    <CardStories.Default />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Without Image">
+    <CardStories.WithoutImage />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Background Image">
+    <CardStories.WithBackgroundImage />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Header Footer">
+    <CardStories.WithHeaderFooter />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="With Different Image Position">
+    <CardStories.WithDifferentImagePosition />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Medium Size">
+    <CardStories.MediumSize />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Full Bleed Size">
+    <CardStories.FullBleedSize />
+  </Story>
+</Canvas>
+
+## Available props
+
+<Markdown>
+  {`
+| Name            | Type             | Default         | Description                                                               |
+|-----------------|------------------|-----------------|---------------------------------------------------------------------------|
+| title         | string         | undefined     | The title of the card.                                                    |
+| subtitle      | string         | undefined     | The subtitle of the card.                                                 |
+| body          | string         | undefined     | The body content of the card.                                             |
+| links         | React.Node     | undefined     | The links to display in the card.                                         |
+| button        | React.Node     | undefined     | The button to display in the card.                                        |
+| image         | string         | undefined     | The URL of the image to display in the card.                              |
+| imagePosition | string         | top         | The position of the image ('top', 'bottom', 'left', 'right').     |
+| backgroundImage| boolean       | false         | Whether to use the image as the background of the entire card.            |
+| header        | string         | undefined     | The header content of the card.                                           |
+| footer        | string         | undefined     | The footer content of the card.                                           |
+| border        | boolean        | false         | Whether to show a border around the card.                                 |
+| size          | string         | default     | The size of the card ('default', 'medium', 'fullBleed').            |
+| textAlign     | string         | left        | The text alignment of the card ('left', 'right', 'center').         |
+| styleType     | string         | primary     | The style type of the card ('primary', 'secondary', 'success', 'danger', 'warning', 'info', 'outline'). |
+| className     | string         | undefined     | Additional classes to apply to the card.                                  |
+| themeMode     | string         | light       | The theme mode to apply to the card.                                      |
+`}
+</Markdown>
+
+## Examples
+
+### Basic Card
+
+```jsx
+import Card from "./Card";
+
+<Card
+  title="Card Title"
+  subtitle="Card Subtitle"
+  body="This is the body of the card."
+  size="default"
+/>;
+```
