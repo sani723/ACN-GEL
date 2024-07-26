@@ -32,7 +32,6 @@ const Badge = ({
 };
 
 const getVariants = (variant, statusColors, theme) => {
-  console.log(theme);
   switch (variant) {
     case "success":
       return css`

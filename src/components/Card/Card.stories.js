@@ -30,6 +30,7 @@ export default {
     },
     styleType: {
       options: [
+        "default",
         "primary",
         "secondary",
         "success",
@@ -94,6 +95,8 @@ WithHeaderFooter.args = {
   ...Default.args,
   header: "Header",
   footer: "Footer",
+  showHeader: true,
+  showFooter: true,
 };
 
 export const WithDifferentImagePosition = Template.bind({});

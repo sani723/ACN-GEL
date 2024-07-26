@@ -19,12 +19,12 @@ const Card = ({
   textAlign = "left",
   styleType = "primary",
   className,
-  themeMode = "light",
+  themeName = "light",
   showHeader = true,
   showFooter = true,
 }) => {
-  const themeColors = colors.theme[themeMode];
-  const cardStyles = colors.status;
+  const theme = colors.theme[themeName];
+  const statusColors = colors.status;
 
   return (
     <CardContainer
@@ -32,12 +32,13 @@ const Card = ({
       border={border}
       textAlign={textAlign}
       styleType={styleType}
-      themeColors={themeColors}
+      theme={theme}
       backgroundImage={backgroundImage}
       image={image}
       className={className}
+      statusColors={statusColors}
     >
-      {showHeader && <Header themeColors={themeColors}>{header}</Header>}
+      {showHeader && <Header theme={theme}>{header}</Header>}
       {image && imagePosition === "top" && !backgroundImage && (
         <Image src={image} position={imagePosition} />
       )}
@@ -68,36 +69,83 @@ const textAlignments = {
   center: "center",
 };
 
-const cardVariants = {
-  primary: css`
-    background-color: #007bff;
-    color: white;
-  `,
-  secondary: css`
-    background-color: #6c757d;
-    color: white;
-  `,
-  success: css`
-    background-color: #28a745;
-    color: white;
-  `,
-  danger: css`
-    background-color: #dc3545;
-    color: white;
-  `,
-  warning: css`
-    background-color: #ffc107;
-    color: white;
-  `,
-  info: css`
-    background-color: #17a2b8;
-    color: white;
-  `,
-  outline: css`
-    background-color: transparent;
-    border: 1px solid #6c757d;
-    color: #6c757d;
-  `,
+const getCardVariants = (styleType, statusColors, theme) => {
+  switch (styleType) {
+    case "success":
+      return css`
+        background-color: ${statusColors.success};
+        color: white;
+      `;
+    case "warning":
+      return css`
+        background-color: ${statusColors.warning};
+        color: white;
+      `;
+    case "danger":
+      return css`
+        background-color: ${statusColors.error};
+        color: white;
+      `;
+    case "info":
+      return css`
+        background-color: ${statusColors.info};
+        color: white;
+      `;
+    case "primary":
+      return css`
+        background-color: #0c6cf6;
+        color: white;
+      `;
+    case "secondary":
+      return css`
+        background-color: #6b727a;
+        color: white;
+      `;
+    case "outline":
+      return css`
+        background-color: ${theme.background};
+        border: 1px solid ${theme.primaryText};
+        color: ${theme.primaryText};
+      `;
+    default:
+      return css`
+        background-color: white;
+        color: #000;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      `;
+  }
+
+  //   primary: css`
+  //     background-color: #007bff;
+  //     color: white;
+  //   `,
+  //   secondary: css`
+  //     background-color: #6c757d;
+  //     color: white;
+  //   `,
+  //   success: css`
+  //     background-color: #28a745;
+  //     color: white;
+  //   `,
+  //   danger: css`
+  //     background-color: #dc3545;
+  //     color: white;
+  //   `,
+  //   warning: css`
+  //     background-color: #ffc107;
+  //     color: white;
+  //   `,
+  //   info: css`
+  //     background-color: #17a2b8;
+  //     color: white;
+  //   `,
+  //   outline: css`
+  //     background-color: transparent;
+  //     border: 1px solid #6c757d;
+  //     color: #6c757d;
+  //   `,
 };
 
 const CardContainer = styled.div`
@@ -106,7 +154,8 @@ const CardContainer = styled.div`
   border-radius: 4px;
   overflow: hidden;
   text-align: ${(props) => textAlignments[props.textAlign]};
-  ${(props) => cardVariants[props.styleType]}
+  ${(props) =>
+    getCardVariants(props.styleType, props.statusColors, props.theme)}
   background-image: ${(props) =>
     props.backgroundImage ? `url(${props.image})` : "none"};
   background-size: cover;
@@ -116,8 +165,8 @@ const CardContainer = styled.div`
 
 const Header = styled.div`
   padding: 1rem;
-  background-color: ${(props) => props.themeColors.surface};
-  color: ${(props) => props.themeColors.primaryText};
+  background-color: ${(props) => props.theme.surface};
+  color: ${(props) => props.theme.primaryText};
 `;
 
 const Image = styled.img`
