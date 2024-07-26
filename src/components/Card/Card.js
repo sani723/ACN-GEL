@@ -1,8 +1,7 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import colors from "../styles/themes"; // Ensure you import the theme file
+import colors from "../../utils/colors";
 
 const Card = ({
   title,

@@ -1,5 +1,5 @@
-import React from "react";
 import Card from "./Card";
+import GlobalStyles from "../../utils/GlobalStyles";
 
 export default {
   title: "Components/Card",
@@ -11,44 +11,52 @@ export default {
   },
   argTypes: {
     imagePosition: {
-      control: { type: "select", options: ["top", "bottom", "left", "right"] },
+      options: ["top", "bottom", "left", "right"],
+      control: { type: "select" },
     },
     size: {
-      control: { type: "select", options: ["default", "medium", "fullBleed"] },
+      options: ["default", "medium", "fullBleed"],
+      control: { type: "select" },
     },
     textAlign: {
-      control: { type: "select", options: ["left", "right", "center"] },
+      options: ["left", "right", "center"],
+      control: { type: "select" },
     },
     styleType: {
-      control: {
-        type: "select",
-        options: [
-          "primary",
-          "secondary",
-          "success",
-          "danger",
-          "warning",
-          "info",
-          "outline",
-        ],
-      },
+      options: [
+        "primary",
+        "secondary",
+        "success",
+        "danger",
+        "warning",
+        "info",
+        "outline",
+      ],
+      control: { type: "select" },
     },
-    themeMode: {
-      control: { type: "select", options: ["light", "dark"] },
+    themeName: {
+      options: ["light", "dark"],
+      control: { type: "select" },
     },
   },
 };
 
-const Template = (args) => <Card {...args} />;
+const Template = (args) => (
+  <>
+    <GlobalStyles themeName={args.themeName} />
+    <Card {...args} />
+  </>
+);
 
 export const Default = Template.bind({});
 Default.args = {
   title: "Card Title",
   subtitle: "Card Subtitle",
-  body: "This is the body of the card.",
+  body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
   links: <a href="#">Link</a>,
   button: "Button",
-  image: "https://via.placeholder.com/150",
+  image:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Dubai_Marina_Skyline.jpg/1024px-Dubai_Marina_Skyline.jpg",
   imagePosition: "top",
   backgroundImage: false,
   header: "Card Header",
@@ -58,7 +66,7 @@ Default.args = {
   textAlign: "left",
   styleType: "primary",
   className: "",
-  themeMode: "light",
+  themeName: "light",
 };
 
 export const WithoutImage = Template.bind({});

@@ -1,53 +1,20 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
 import * as CardStories from "./Card.stories";
 
 <Meta of={CardStories} />
 
 # Card
 
-The `Card` component displays a content container with various configurations.
+A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and display options.
 
 ## Usage
+
+Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element.
 
 <Canvas>
   <Story name="Default">
     <CardStories.Default />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Without Image">
-    <CardStories.WithoutImage />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="With Background Image">
-    <CardStories.WithBackgroundImage />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="With Header Footer">
-    <CardStories.WithHeaderFooter />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="With Different Image Position">
-    <CardStories.WithDifferentImagePosition />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Medium Size">
-    <CardStories.MediumSize />
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="Full Bleed Size">
-    <CardStories.FullBleedSize />
   </Story>
 </Canvas>
 
