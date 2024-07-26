@@ -20,6 +20,8 @@ const Card = ({
   styleType = "primary",
   className,
   themeMode = "light",
+  showHeader = true,
+  showFooter = true,
 }) => {
   const themeColors = colors.theme[themeMode];
   const cardStyles = colors.status;
@@ -35,7 +37,7 @@ const Card = ({
       image={image}
       className={className}
     >
-      {header && <Header themeColors={themeColors}>{header}</Header>}
+      {showHeader && <Header themeColors={themeColors}>{header}</Header>}
       {image && imagePosition === "top" && !backgroundImage && (
         <Image src={image} position={imagePosition} />
       )}
@@ -49,7 +51,7 @@ const Card = ({
       {image && imagePosition === "bottom" && !backgroundImage && (
         <Image src={image} position={imagePosition} />
       )}
-      {footer && <Footer>{footer}</Footer>}
+      {showFooter && <Footer>{footer}</Footer>}
     </CardContainer>
   );
 };

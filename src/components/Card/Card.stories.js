@@ -22,6 +22,12 @@ export default {
       options: ["left", "right", "center"],
       control: { type: "select" },
     },
+    showHeader: {
+      control: "boolean",
+    },
+    showFooter: {
+      control: "boolean",
+    },
     styleType: {
       options: [
         "primary",
@@ -61,12 +67,14 @@ Default.args = {
   backgroundImage: false,
   header: "Card Header",
   footer: "Card Footer",
-  border: true,
+  border: false,
   size: "default",
   textAlign: "left",
-  styleType: "primary",
+  styleType: "secondary",
   className: "",
   themeName: "light",
+  showHeader: false,
+  showFooter: false,
 };
 
 export const WithoutImage = Template.bind({});
