@@ -31,7 +31,8 @@ const Badge = ({
   );
 };
 
-const getVariants = (variant, statusColors) => {
+const getVariants = (variant, statusColors, theme) => {
+  console.log(theme);
   switch (variant) {
     case "success":
       return css`
@@ -55,13 +56,13 @@ const getVariants = (variant, statusColors) => {
       `;
     case "outline":
       return css`
-        background-color: "transparent";
-        border: 1px solid #000;
-        color: #000;
+        background-color: ${theme.background};
+        border: 1px solid ${theme.primaryText};
+        color: ${theme.primaryText};
       `;
     default:
       return css`
-        background-color: #ccc;
+        background-color: #9f9f9f;
         color: white;
       `;
   }
@@ -91,7 +92,7 @@ const BadgeContainer = styled.div`
   display: inline-block;
   font-size: 0.7em;
   font-family: "Nunito Sans", sans-serif;
-  ${(props) => getVariants(props.variant, props.statusColors)}
+  ${(props) => getVariants(props.variant, props.statusColors, props.theme)}
   ${(props) => types[props.type]}
 `;
 
