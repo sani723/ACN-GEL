@@ -88,13 +88,32 @@ Default.args = {
   placeholder: "Enter text",
   id: "default-input",
   name: "defaultInput",
-  required: false,
+  required: true,
   min: undefined,
   max: undefined,
   step: undefined,
   value: "",
   pattern: "",
   ariaLabel: "Default input",
+  ariaDescribedBy: "",
+  ariaInvalid: false,
+  ariaRequired: false,
+  themeName: "light",
+};
+
+export const PassInput = Template.bind({});
+PassInput.args = {
+  type: "password",
+  placeholder: "Enter password",
+  id: "password-input",
+  name: "passwordInput",
+  required: false,
+  min: undefined,
+  max: undefined,
+  step: undefined,
+  value: "",
+  pattern: "",
+  ariaLabel: "Password input",
   ariaDescribedBy: "",
   ariaInvalid: false,
   ariaRequired: false,
@@ -111,7 +130,7 @@ NumberInput.args = {
   min: 0,
   max: 100,
   step: 1,
-  value: "",
+  value: "2",
   ariaLabel: "Number input",
   ariaDescribedBy: "",
   ariaInvalid: false,
@@ -119,15 +138,14 @@ NumberInput.args = {
   themeName: "light",
 };
 
-export const TelInput = Template.bind({});
-TelInput.args = {
-  type: "tel",
-  placeholder: "Enter a phone number",
-  id: "tel-input",
-  name: "telInput",
+export const FileInput = Template.bind({});
+FileInput.args = {
+  type: "file",
+  placeholder: "Select a file",
+  id: "file-input",
+  name: "fileInput",
   required: false,
-  pattern: "\\d{3}[\\-]\\d{3}[\\-]\\d{4}",
-  ariaLabel: "Telephone input",
+  ariaLabel: "File input",
   ariaDescribedBy: "",
   ariaInvalid: false,
   ariaRequired: false,
