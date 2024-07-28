@@ -152,6 +152,34 @@ FileInput.args = {
   themeName: "light",
 };
 
+export const DateInput = Template.bind({});
+DateInput.args = {
+  type: "date",
+  placeholder: "Select date",
+  id: "date-input",
+  name: "dateInput",
+  required: false,
+  ariaLabel: "Date input",
+  ariaDescribedBy: "",
+  ariaInvalid: false,
+  ariaRequired: false,
+  themeName: "light",
+};
+
+export const TimeInput = Template.bind({});
+TimeInput.args = {
+  type: "time",
+  placeholder: "Select time",
+  id: "time-input",
+  name: "timeInput",
+  required: false,
+  ariaLabel: "Time input",
+  ariaDescribedBy: "",
+  ariaInvalid: false,
+  ariaRequired: false,
+  themeName: "light",
+};
+
 export const RangeInput = Template.bind({});
 RangeInput.args = {
   type: "range",
