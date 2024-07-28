@@ -1,0 +1,75 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
+import * as InputStories from "./TextInput.stories";
+
+<Meta of={InputStories} />
+
+# TextInput
+
+The Input component is a versatile input element that can be configured with various properties such as type, placeholder, id, name, and other HTML attributes. It also supports accessibility attributes to meet AAA standards.
+
+## Usage
+
+<Canvas>
+  <Story name="Default">
+    <InputStories.Default />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Number Input">
+    <InputStories.NumberInput />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Tel Input">
+    <InputStories.TelInput />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Range Input">
+    <InputStories.RangeInput />
+  </Story>
+</Canvas>
+
+## Available props
+
+<Markdown>
+  {`
+| Name            | Type      | Default       | Description                                                                                   |
+|-----------------|-----------|---------------|-----------------------------------------------------------------------------------------------|
+| type          | string  | 'text'      | The input type ('text', 'password', 'number', 'file', 'email', 'date', 'hidden', 'search', 'tel', 'time', 'url', 'week', 'range'). |
+| placeholder   | string  | ''          | The placeholder text for the input.                                                           |
+| id            | string  | undefined   | The ID of the input element.                                                                  |
+| name          | string  | undefined   | The name of the input element.                                                                |
+| required      | boolean | false       | Whether the input is required.                                                                |
+| min           | number  | undefined   | The minimum value for the input (only for 'number' and 'range' types).                    |
+| max           | number  | undefined   | The maximum value for the input (only for 'number' and 'range' types).                    |
+| step          | number  | undefined   | The step value for the input (only for 'number' type).                                      |
+| value         | string  | undefined   | The value of the input (only for 'number' type).                                            |
+| pattern       | string  | undefined   | The pattern attribute for the input (only for 'tel' type).                                  |
+| ariaLabel     | string  | undefined   | The accessible name for the input.                                                            |
+| ariaDescribedBy | string  | undefined | The ID of the element that describes the input.                                               |
+| ariaInvalid   | boolean | false       | Indicates whether the input value is invalid.                                                 |
+| ariaRequired  | boolean | false       | Indicates whether the input is required.                                                      |
+`}
+</Markdown>
+
+## Examples
+
+### Basic Input
+
+```jsx
+import Input from "./Input";
+
+<Input
+  type="text"
+  placeholder="Enter text"
+  id="default-input"
+  name="defaultInput"
+  required={false}
+  ariaLabel="Default input"
+/>;
+```
