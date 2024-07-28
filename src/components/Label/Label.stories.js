@@ -1,57 +1,53 @@
 import React from "react";
 import Label from "./Label";
 import designTokens from "../../utils/designTokens";
+import GlobalStyles from "../../utils/GlobalStyles";
 
 export default {
   title: "Components/Label",
   component: Label,
   argTypes: {
     tag: {
-      control: {
-        type: "select",
-        options: ["p", "h1", "h2", "h3", "h4", "h5", "h6"],
-      },
+      options: ["p", "h1", "h2", "h3", "h4", "h5", "h6"],
+      control: { type: "select" },
     },
     textAlign: {
-      control: {
-        type: "select",
-        options: ["left", "right", "center"],
-      },
+      options: ["left", "right", "center"],
+      control: { type: "select" },
     },
     textTransform: {
-      control: {
-        type: "select",
-        options: ["none", "uppercase", "lowercase", "capitalize"],
-      },
+      options: ["none", "uppercase", "lowercase", "capitalize"],
+      control: { type: "select" },
     },
     fontSize: {
-      control: {
-        type: "select",
-        options: Object.keys(designTokens.typography.fontSize),
-      },
+      options: Object.keys(designTokens.typography.fontSize),
+      control: { type: "select" },
     },
     fontWeight: {
-      control: {
-        type: "select",
-        options: Object.keys(designTokens.typography.fontWeight),
-      },
+      options: Object.keys(designTokens.typography.fontWeight),
+      control: { type: "select" },
     },
     lineHeight: {
-      control: {
-        type: "select",
-        options: Object.keys(designTokens.typography.lineHeight),
-      },
+      options: Object.keys(designTokens.typography.lineHeight),
+      control: { type: "select" },
     },
     textDecoration: {
-      control: {
-        type: "select",
-        options: ["none", "underline", "line-through"],
-      },
+      options: ["none", "underline", "line-through"],
+      control: { type: "select" },
+    },
+    themeName: {
+      options: ["light", "dark"],
+      control: { type: "select" },
     },
   },
 };
 
-const Template = (args) => <Label {...args} />;
+const Template = (args) => (
+  <>
+    <GlobalStyles themeName={args.themeName} />
+    <Label {...args} />
+  </>
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -63,6 +59,7 @@ Default.args = {
   fontWeight: "regular",
   lineHeight: "normal",
   textDecoration: "none",
+  themeName: "light",
 };
 
 export const Heading = Template.bind({});
@@ -75,4 +72,5 @@ Heading.args = {
   fontWeight: "bold",
   lineHeight: "loose",
   textDecoration: "underline",
+  themeName: "light",
 };
