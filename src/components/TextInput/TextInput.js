@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import designTokens from "../../utils/designTokens";
 
 const Input = ({
   type = "text",
@@ -16,6 +17,7 @@ const Input = ({
   ariaDescribedBy,
   ariaInvalid,
   ariaRequired,
+  themeName,
 }) => {
   return (
     <StyledInput
@@ -33,18 +35,20 @@ const Input = ({
       aria-describedby={ariaDescribedBy}
       aria-invalid={ariaInvalid}
       aria-required={ariaRequired}
+      themeName={themeName}
     />
   );
 };
 
 const StyledInput = styled.input`
   width: 100%;
-  padding: 8px;
-  margin: 8px 0;
+  padding: ${designTokens.spacing.sm};
+  margin: ${designTokens.spacing.sm} 0;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border: ${(props) =>
+    `${designTokens.borders.width.sm} solid ${designTokens.theme[props.themeName].borders}`};
+  border-radius: ${designTokens.borders.radius.sm};
+  font-size: ${designTokens.typography.fontSize.md};
 `;
 
 export default Input;

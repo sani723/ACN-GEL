@@ -68,6 +68,7 @@ const designTokens = {
   },
   borders: {
     radius: {
+      0: "0",
       sm: "4px",
       md: "8px",
       lg: "16px",
