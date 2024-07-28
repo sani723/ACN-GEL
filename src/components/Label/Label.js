@@ -12,10 +12,13 @@ const Label = ({
   fontWeight = "regular",
   lineHeight = "normal",
   textDecoration = "none",
+  htmlFor,
+  ariaLabel,
+  ariaHidden,
 }) => {
   const Tag = tag;
   return (
-    <StyledLabel
+    <ACNLabel
       as={Tag}
       textAlign={textAlign}
       textTransform={textTransform}
@@ -23,13 +26,16 @@ const Label = ({
       fontWeight={fontWeight}
       lineHeight={lineHeight}
       textDecoration={textDecoration}
+      htmlFor={htmlFor}
+      aria-label={ariaLabel}
+      aria-hidden={ariaHidden}
     >
       {text}
-    </StyledLabel>
+    </ACNLabel>
   );
 };
 
-const StyledLabel = styled.div`
+const ACNLabel = styled.div`
   text-align: ${(props) => props.textAlign};
   text-transform: ${(props) => props.textTransform};
   font-size: ${(props) => designTokens.typography.fontSize[props.fontSize]};

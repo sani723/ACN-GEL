@@ -8,7 +8,7 @@ export default {
   component: Label,
   argTypes: {
     tag: {
-      options: ["p", "h1", "h2", "h3", "h4", "h5", "h6"],
+      options: ["p", "h1", "h2", "h3", "h4", "h5", "h6", "label"],
       control: { type: "select" },
     },
     textAlign: {
@@ -72,5 +72,21 @@ Heading.args = {
   fontWeight: "bold",
   lineHeight: "loose",
   textDecoration: "underline",
+  themeName: "light",
+};
+
+export const LabelTag = Template.bind({});
+LabelTag.args = {
+  text: "Label Text",
+  tag: "label",
+  textAlign: "left",
+  textTransform: "none",
+  fontSize: "md",
+  fontWeight: "regular",
+  lineHeight: "normal",
+  textDecoration: "none",
+  htmlFor: "inputId",
+  ariaLabel: "Label for inputId",
+  ariaHidden: false,
   themeName: "light",
 };
