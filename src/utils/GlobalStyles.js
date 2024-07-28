@@ -1,9 +1,9 @@
 // .storybook/GlobalStyles.js
 import { Global, css } from "@emotion/react";
-import colors from "./colors";
+import designTokens from "./designTokens";
 
 const GlobalStyles = ({ themeName }) => {
-  const theme = colors.theme[themeName];
+  const theme = designTokens.theme[themeName];
 
   return (
     <Global

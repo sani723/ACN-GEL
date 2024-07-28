@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import colors from "../../utils/colors";
+import designTokens from "../../utils/designTokens";
 import styled from "@emotion/styled";
 import { FaUser } from "react-icons/fa";
 
@@ -15,7 +15,7 @@ const Avatar = ({
   themeName,
 }) => {
   const [imgError, setImgError] = useState(false);
-  const theme = colors.theme[themeName];
+  const theme = designTokens.theme[themeName];
 
   const handleError = () => {
     setImgError(true);

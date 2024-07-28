@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import colors from "../../utils/colors";
+import designTokens from "../../utils/designTokens";
 
 const Badge = ({
   label,
@@ -13,8 +13,8 @@ const Badge = ({
   className,
   themeName,
 }) => {
-  const theme = colors.theme[themeName];
-  const statusColors = colors.status;
+  const theme = designTokens.theme[themeName];
+  const statusColors = designTokens.status;
 
   return (
     <BadgeContainer

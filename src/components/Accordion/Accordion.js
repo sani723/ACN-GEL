@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import colors from "../../utils/colors";
+import designTokens from "../../utils/designTokens";
 
 const AccordionItem = ({ title, content, isOpen, onClick, themeName }) => {
-  const selectedTheme = colors.theme[themeName];
+  const selectedTheme = designTokens.theme[themeName];
   return (
     <Item>
       <Title onClick={onClick} theme={selectedTheme}>
@@ -23,7 +23,6 @@ const Accordion = ({
   themeName = "light",
 }) => {
   const [openIndexes, setOpenIndexes] = useState([]);
-  //const theme = colors.theme[themeName];
 
   useEffect(() => {
     if (defaultOpenIndex !== null) {
@@ -43,9 +42,6 @@ const Accordion = ({
     }
   };
 
-  //const selectedTheme = colors.theme[themeName] || colors["light"];
-  //const selectedTheme = colors.theme[themeName];
-  //console.log(selectedTheme);
   return (
     <ACNAccordion>
       {items.map((item, index) => (

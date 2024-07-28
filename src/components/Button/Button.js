@@ -3,7 +3,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { darken } from "polished";
-import colors from "../../utils/colors";
+import designTokens from "../../utils/designTokens";
 import { FaSpinner } from "react-icons/fa";
 
 const Button = ({
@@ -17,7 +17,7 @@ const Button = ({
   loading,
   disabled,
 }) => {
-  const theme = colors.theme[themeName];
+  const theme = designTokens.theme[themeName];
   return (
     <ACNButton
       variant={variant}

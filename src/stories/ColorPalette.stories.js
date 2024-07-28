@@ -1,8 +1,7 @@
 import React from "react";
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-import colors from "../utils/colors"; // Ensure the path to colors.js is correct
+import designTokens from "../utils/designTokens";
 
 export default {
   title: "Design System/Color Palette",
@@ -54,10 +53,13 @@ const ThemePalette = ({ theme, themeName }) => (
 
 export const Palette = () => (
   <div>
-    <ThemePalette theme={colors.theme.light} themeName="Light" />
-    <ThemePalette theme={colors.theme.dark} themeName="Dark" />
-    <ThemePalette theme={colors.status} themeName="Status" />
-    <ThemePalette theme={colors.functional} themeName="Functional Grey Tones" />
+    <ThemePalette theme={designTokens.theme.light} themeName="Light" />
+    <ThemePalette theme={designTokens.theme.dark} themeName="Dark" />
+    <ThemePalette theme={designTokens.status} themeName="Status" />
+    <ThemePalette
+      theme={designTokens.functional}
+      themeName="Functional Grey Tones"
+    />
   </div>
 );
 
