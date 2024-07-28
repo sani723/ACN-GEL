@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import designTokens from "../../utils/designTokens";
+import designTokens from "../../../utils/designTokens";
 
 const Input = ({
   type = "text",

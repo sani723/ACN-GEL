@@ -1,6 +1,6 @@
 import React from "react";
 import TextInput from "./TextInput";
-import GlobalStyles from "../../utils/GlobalStyles";
+import GlobalStyles from "../../../utils/GlobalStyles";
 
 export default {
   title: "Components/Input",
