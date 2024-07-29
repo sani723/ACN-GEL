@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import Label from "../atoms/Label/Label";
 import TextField from "../atoms/TextInput/TextInput";
 
-import Input from "./Input";
-
 const FormField = ({ label, themeName, ...props }) => (
   <div>
     <Label themeName={themeName}>{label}</Label>
@@ -14,7 +12,7 @@ const FormField = ({ label, themeName, ...props }) => (
 
 FormField.propTypes = {
   label: PropTypes.string.isRequired,
-  themeName: PropTypes.oneOf(["light", "dark", "custom"]).isRequired,
+  themeName: PropTypes.oneOf(["light", "dark"]).isRequired,
 };
 
 export default FormField;
