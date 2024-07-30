@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import designTokens from "../../../utils/designTokens";
@@ -47,3 +48,21 @@ const ACNLabel = styled.div`
 `;
 
 export default Label;
+
+Label.propTypes = {
+  text: PropTypes.string.isRequired,
+  tag: PropTypes.oneOf(["p", "h1", "h2", "h3", "h4", "h5", "h6", "label"]),
+  textAlign: PropTypes.oneOf(["left", "right", "center"]),
+  textTransform: PropTypes.oneOf([
+    "none",
+    "uppercase",
+    "lowercase",
+    "capitalize",
+  ]),
+  fontSize: PropTypes.string,
+  fontWeight: PropTypes.oneOf(["light", "regular", "medium", "bold"]),
+  textDecoration: PropTypes.oneOf(["none", "underline", "line-through"]),
+  htmlFor: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  ariaHidden: PropTypes.string,
+};
