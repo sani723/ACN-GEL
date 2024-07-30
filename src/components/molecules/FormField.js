@@ -28,7 +28,10 @@ const FormField = ({
 );
 
 FormField.propTypes = {
+  labelTag: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
+  inputType: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
   themeName: PropTypes.oneOf(["light", "dark"]).isRequired,
 };
 
