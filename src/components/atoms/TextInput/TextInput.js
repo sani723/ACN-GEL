@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import designTokens from "../../../utils/designTokens";
 
@@ -52,3 +53,21 @@ const StyledInput = styled.input`
 `;
 
 export default Input;
+
+Input.propTypes = {
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  required: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  value: PropTypes.number,
+  pattern: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  ariaDescribedBy: PropTypes.string,
+  ariaInvalid: PropTypes.string,
+  ariaRequired: PropTypes.string,
+  themeName: PropTypes.oneOf(["light", "dark"]),
+};
