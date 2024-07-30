@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import designTokens from "../../utils/designTokens";
 import styled from "@emotion/styled";
 import { FaUser } from "react-icons/fa";
@@ -76,3 +77,15 @@ const IconAvatar = styled.div`
 `;
 
 export default Avatar;
+
+Avatar.propTypes = {
+  label: PropTypes.string,
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  src: PropTypes.string,
+  icon: PropTypes.func,
+  alt: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  role: PropTypes.string,
+  className: PropTypes.string,
+  themeName: PropTypes.oneOf(["light", "dark"]),
+};

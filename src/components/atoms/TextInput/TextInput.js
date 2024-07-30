@@ -59,7 +59,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
-  required: PropTypes.string,
+  required: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
@@ -67,7 +67,7 @@ Input.propTypes = {
   pattern: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaDescribedBy: PropTypes.string,
-  ariaInvalid: PropTypes.string,
-  ariaRequired: PropTypes.string,
+  ariaInvalid: PropTypes.bool,
+  ariaRequired: PropTypes.bool,
   themeName: PropTypes.oneOf(["light", "dark"]),
 };
