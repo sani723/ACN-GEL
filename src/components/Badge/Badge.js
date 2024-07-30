@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import designTokens from "../../utils/designTokens";
@@ -96,3 +97,13 @@ const BadgeContainer = styled.div`
 `;
 
 export default Badge;
+
+Badge.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string,
+  role: PropTypes.string,
+  className: PropTypes.string,
+  themeName: PropTypes.oneOf(["light", "dark"]),
+};
