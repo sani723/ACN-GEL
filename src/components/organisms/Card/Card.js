@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import designTokens from "../../../utils/designTokens";
+import Label from "../../atoms/Label/Label";
 
 const Card = ({
   title,
@@ -45,6 +46,7 @@ const Card = ({
       )}
       <CardContent>
         {title && <Title>{title}</Title>}
+        {/* {title && <Label tag="h2" text={title} />} */}
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
         {body && <Body>{body}</Body>}
         {links && <Links>{links}</Links>}
