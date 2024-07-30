@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import designTokens from "../../utils/designTokens";
 
@@ -92,3 +93,9 @@ const Content = styled.div`
 `;
 
 export default Accordion;
+
+Accordion.propTypes = {
+  items: PropTypes.array.isRequired,
+  defaultOpenIndex: PropTypes.number,
+  themeName: PropTypes.oneOf(["light", "dark"]),
+};
