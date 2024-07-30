@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import designTokens from "../../../utils/designTokens";
@@ -216,3 +217,32 @@ const Footer = styled.div`
 `;
 
 export default Card;
+
+Card.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  body: PropTypes.string,
+  links: PropTypes.element,
+  image: PropTypes.string,
+  imagePosition: PropTypes.string,
+  backgroundImage: PropTypes.bool,
+  header: PropTypes.string,
+  footer: PropTypes.string,
+  border: PropTypes.bool,
+  size: PropTypes.oneOf(["default", "medium", "fullBleed"]),
+  textAlign: PropTypes.oneOf(["left", "right", "center"]),
+  styleType: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "outline",
+  ]),
+  className: PropTypes.string,
+  themeName: PropTypes.oneOf(["light", "dark"]),
+  showHeader: PropTypes.bool,
+  showFooter: PropTypes.bool,
+};
