@@ -1,5 +1,6 @@
 import Button from "./Button";
 import { FaBookmark, FaInstagram, FaHeart } from "react-icons/fa";
+import { action } from "@storybook/addon-actions";
 import GlobalStyles from "../../../utils/GlobalStyles";
 
 export default {
@@ -30,6 +31,7 @@ export default {
     disabled: {
       control: { type: "boolean" },
     },
+    onClick: { action: "clicked" },
   },
   // tags: ["autodocs"],
 };
@@ -50,6 +52,7 @@ Primary.args = {
   loading: false,
   disabled: false,
   rounded: false,
+  onClick: action("Button clicked"),
 };
 
 export const PrimaryWithIcon = Template.bind({});
