@@ -3,15 +3,32 @@ import PropTypes from "prop-types";
 import Label from "../atoms/Label/Label";
 import TextField from "../atoms/TextInput/TextInput";
 
-const FormField = ({ label, themeName, ...props }) => (
+const FormField = ({
+  labelTag,
+  labelText,
+  inputType,
+  inputName,
+  themeName,
+  ...props
+}) => (
   <div>
-    <Label themeName={themeName}>{label}</Label>
-    <TextField type="text" themeName={themeName} {...props} />
+    <Label
+      tag={labelTag}
+      htmlFor="inputUserName"
+      themeName={themeName}
+      text={labelText}
+    />
+    <TextField
+      type={inputType}
+      id={inputName}
+      name={inputName}
+      themeName={themeName}
+    />
   </div>
 );
 
 FormField.propTypes = {
-  label: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
   themeName: PropTypes.oneOf(["light", "dark"]).isRequired,
 };
 

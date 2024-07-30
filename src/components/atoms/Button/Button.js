@@ -166,5 +166,3 @@ const ACNButton = styled.button`
 `;
 
 export default Button;
-
-//${(props) => sizeStyles[props.size]}

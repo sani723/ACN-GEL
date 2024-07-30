@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
+import * as LoginFormStories from "./LoginForm.stories";
+
+<Meta of={LoginFormStories} />
+
+# LoginForm
+
+LoginForm is an organism component that combines form fields and a submit button for user login. It supports multiple themes including light, dark, and custom themes.
+
+## Usage
+
+<Canvas>
+  <Story name="Default">
+    <LoginFormStories.Default />
+  </Story>
+</Canvas>
+
+## Available props
+
+<Markdown>
+  {`
+| Name      | Type   | Default | Description           |
+| --------- | ------ | ------- | --------------------- |
+| themeName | string | 'light' | Select theme to apply |
+`}
+</Markdown>
+
+## Examples
