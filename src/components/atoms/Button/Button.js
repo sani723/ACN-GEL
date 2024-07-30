@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
+import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { darken } from "polished";
@@ -166,3 +167,15 @@ const ACNButton = styled.button`
 `;
 
 export default Button;
+
+Button.propTypes = {
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  variant: PropTypes.string.isRequired,
+  themeName: PropTypes.oneOf(["light", "dark"]),
+  size: PropTypes.string,
+  icon: PropTypes.func,
+  rounded: PropTypes.bool,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
+};
