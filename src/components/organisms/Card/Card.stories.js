@@ -1,5 +1,5 @@
 import Card from "./Card";
-import GlobalStyles from "../../utils/GlobalStyles";
+import GlobalStyles from "../../../utils/GlobalStyles";
 
 export default {
   title: "Components/Card",

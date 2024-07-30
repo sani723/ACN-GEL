@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import designTokens from "../../utils/designTokens";
+import designTokens from "../../../utils/designTokens";
 
 const Card = ({
   title,
