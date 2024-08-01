@@ -58,6 +58,7 @@ Default.args = {
   showLegend: false,
   themeName: "light",
   multipleSvg: false,
+  isStacked: false,
 };
 
 export const CustomDimensions = Template.bind({});
@@ -73,11 +74,12 @@ CustomDimensions.args = {
   showLegend: false,
   themeName: "light",
   multipleSvg: false,
+  isStacked: false,
 };
 
 export const MultipleSVGs = Template.bind({});
 MultipleSVGs.args = {
-  width: "50%",
+  width: "100%",
   height: 300,
   dataKey: "pv",
   stroke: "#82ca9d",
@@ -88,4 +90,21 @@ MultipleSVGs.args = {
   showLegend: false,
   themeName: "light",
   multipleSvg: true,
+  isStacked: false,
+};
+
+export const Stacked = Template.bind({});
+Stacked.args = {
+  width: "100%",
+  height: 400,
+  dataKey: "pv",
+  stroke: "#82ca9d",
+  fill: "#82ca9d",
+  data: data2,
+  showGrid: true,
+  showTootlTip: false,
+  showLegend: false,
+  themeName: "light",
+  multipleSvg: false,
+  isStacked: true,
 };
