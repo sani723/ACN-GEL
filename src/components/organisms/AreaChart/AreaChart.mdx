@@ -31,7 +31,20 @@ The `AreaChart` component is a responsive chart built using the ReCharts library
 `}
 </Markdown>
 
-## Examples
+## Best Practices
+
+### Do
+
+- **Use ResponsiveContainer:** Ensure the chart is wrapped in a **'ResponsiveContainer'** to make it responsive.
+- **Configure data keys:** Use appropriate data keys to match the data structure you have.
+- **Set appropriate dimensions:** Adjust the width and height to fit the layout of your application.
+
+### Don't
+
+- **Avoid hardcoding dimensions:** Do not hardcode the dimensions, use responsive properties where possible.
+- **Ignore data structure:** Ensure the data structure matches the dataKey provided.
+
+## Example
 
 ### Default AreaChart
 

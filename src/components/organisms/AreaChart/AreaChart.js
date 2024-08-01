@@ -7,6 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
 } from "recharts";
 
 const ACNAreaChart = ({
@@ -16,13 +17,18 @@ const ACNAreaChart = ({
   stroke = "#8884d8",
   fill = "#8884d8",
   data,
+  showGrid,
+  showTootlTip,
+  showLegend,
+  themeName,
 }) => (
   <ResponsiveContainer width={width} height={height}>
     <AreaChart data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
+      {showGrid && <CartesianGrid strokeDasharray="3 3" />}
       <XAxis dataKey="name" />
       <YAxis />
-      <Tooltip />
+      {showTootlTip && <Tooltip />}
+      {showLegend && <Legend />}
       <Area type="monotone" dataKey={dataKey} stroke={stroke} fill={fill} />
     </AreaChart>
   </ResponsiveContainer>
