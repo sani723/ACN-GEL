@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
+import * as AreaChartStories from "./AreaChart.stories";
+
+<Meta of={AreaChartStories} />
+
+# AreaChart
+
+The `AreaChart` component is a responsive chart built using the ReCharts library. It can be configured with various properties such as width, height, data key, stroke color, and fill color.
+
+## Usage
+
+<Canvas>
+  <Story name="Default">
+    <AreaChartStories.Default />
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Custom Dimensions">
+    <AreaChartStories.CustomDimensions />
+  </Story>
+</Canvas>
+
+## Available props
+
+<Markdown>
+  {`
+| Name      | Type     | Default     | Description                        |
+| --------- | -------- | ----------- | ---------------------------------- |
+| width   | string | '100%'`    | The width of the chart container.  |
+| height  | number | 400`       | The height of the chart container. |
+| dataKey | string | 'uv'`      | The key of the data to be plotted. |
+| stroke  | string | '#8884d8' | The stroke color of the area line. |
+| fill    | string | '#8884d8' | The fill color of the area.        |
+`}
+</Markdown>
+
+## Examples
+
+### Default AreaChart
+
+```jsx
+import CustomAreaChart from "./AreaChart";
+
+<CustomAreaChart
+  width="100%"
+  height={400}
+  dataKey="uv"
+  stroke="#8884d8"
+  fill="#8884d8"
+/>;
+```
