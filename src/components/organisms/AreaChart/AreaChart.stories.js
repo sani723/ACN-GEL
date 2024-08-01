@@ -57,6 +57,7 @@ Default.args = {
   showTootlTip: false,
   showLegend: false,
   themeName: "light",
+  multipleSvg: false,
 };
 
 export const CustomDimensions = Template.bind({});
@@ -71,4 +72,20 @@ CustomDimensions.args = {
   showTootlTip: false,
   showLegend: false,
   themeName: "light",
+  multipleSvg: false,
+};
+
+export const MultipleSVGs = Template.bind({});
+MultipleSVGs.args = {
+  width: "50%",
+  height: 300,
+  dataKey: "pv",
+  stroke: "#82ca9d",
+  fill: "#82ca9d",
+  data: data2,
+  showGrid: true,
+  showTootlTip: false,
+  showLegend: false,
+  themeName: "light",
+  multipleSvg: true,
 };
