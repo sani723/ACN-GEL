@@ -1,9 +1,10 @@
 import React from "react";
-import CustomAreaChart from "./AreaChart";
+import ACNAreaChart from "./AreaChart";
+import { data1, data2 } from "../../../utils/data/area-chart";
 
 export default {
   title: "Components/AreaChart",
-  component: CustomAreaChart,
+  component: ACNAreaChart,
   argTypes: {
     width: {
       control: "text",
@@ -23,7 +24,7 @@ export default {
   },
 };
 
-const Template = (args) => <CustomAreaChart {...args} />;
+const Template = (args) => <ACNAreaChart {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -32,6 +33,7 @@ Default.args = {
   dataKey: "uv",
   stroke: "#8884d8",
   fill: "#8884d8",
+  data: data1,
 };
 
 export const CustomDimensions = Template.bind({});
@@ -41,4 +43,5 @@ CustomDimensions.args = {
   dataKey: "pv",
   stroke: "#82ca9d",
   fill: "#82ca9d",
+  data: data1,
 };

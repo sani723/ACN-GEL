@@ -16,23 +16,18 @@ The `AreaChart` component is a responsive chart built using the ReCharts library
   </Story>
 </Canvas>
 
-<Canvas>
-  <Story name="Custom Dimensions">
-    <AreaChartStories.CustomDimensions />
-  </Story>
-</Canvas>
-
 ## Available props
 
 <Markdown>
   {`
 | Name      | Type     | Default     | Description                        |
 | --------- | -------- | ----------- | ---------------------------------- |
-| width   | string | '100%'`    | The width of the chart container.  |
-| height  | number | 400`       | The height of the chart container. |
-| dataKey | string | 'uv'`      | The key of the data to be plotted. |
+| width   | string | '100%'    | The width of the chart container.  |
+| height  | number | 400       | The height of the chart container. |
+| dataKey | string | 'uv'      | The key of the data to be plotted. |
 | stroke  | string | '#8884d8' | The stroke color of the area line. |
 | fill    | string | '#8884d8' | The fill color of the area.        |
+| data    | object | null | The chart data.        |
 `}
 </Markdown>
 
@@ -41,13 +36,14 @@ The `AreaChart` component is a responsive chart built using the ReCharts library
 ### Default AreaChart
 
 ```jsx
-import CustomAreaChart from "./AreaChart";
+import ACNAreaChart from "./AreaChart";
 
-<CustomAreaChart
+<ACNAreaChart
   width="100%"
   height={400}
   dataKey="uv"
   stroke="#8884d8"
   fill="#8884d8"
+  data={data}
 />;
 ```
